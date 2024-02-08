@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 li {
@@ -17,26 +17,7 @@ h1 {
 }
 
 p {
-  font-size: 23px
+  font-size: 23px;
 }
 
-.orangeShadow {
-  transition: all 0.3s;
-}
-
-.shad {
-  background: linear-gradient(to right, #FFA500, hsl(31, 100%, 50%));
-}
-
-@keyframes inOut {
-  0% {
-    scale: 1
-  }
-  50% {
-    scale: 1.2
-  }
-  100% {
-    scale: 1
-  }
-}
 
