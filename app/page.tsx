@@ -41,8 +41,7 @@ export default function Home() {
           <img
             className="overflow-hidden animate1 h-[80vh] object-cover"
             width="100%"
-            src="/specialArtboard 1.svg"
-          ></img>
+            src="/specialArtboard 1.svg"></img>
         </div>
       </div>
       <div className="pt-[50px] m-auto h-[100vh]">
@@ -62,8 +61,7 @@ export default function Home() {
                     className="transition-all duration-[0.4s] hover:scale-[1.05] "
                     width="100%"
                     height="100%"
-                    src={item.bg}
-                  ></img>
+                    src={item.bg}></img>
                 </div>
                 <div className=" mt-[20px] ">
                   {/* <img width='120px'  className="m-auto "  src={item.icon}></img> */}
