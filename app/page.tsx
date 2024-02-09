@@ -25,23 +25,32 @@ const provideInfo = [
 export default function Home() {
   return (
     <div>
-      <div id="land" className=" flex relative">
+      <div id="land" className=" flex h-[80vh]  relative">
         <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
-        <div className="absolute w-[60%]  pl-[7%] pt-[10%] text-white">
-          <h1>
-            Together, let's reach out for change{" "}
-            <span className="text-[#ffa500]">one hand at a time</span>
-          </h1>
-          <p>Your support matters more than ever.</p>
-          <button className=" hover:orangeShadow w-[190px] mt-[20px] h-[55px] border-[3px] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[3px] hover:text-[orange] hover:border-[orange] transition-all duration-[0.5s] ease-in-out">
-            Donate Now
-          </button>
-        </div>
         <div className="w-full  overflow-hidden">
           <img
-            className="overflow-hidden animate1 h-[80vh] object-cover"
+            className=" h-full object-cover "
             width="100%"
+
             src="/specialArtboard 1.svg"></img>
+
+            src="/specialArtboard 1.svg"
+          ></img>
+          <div className="absolute w-[50rem] pl-[7%]   pt-[20vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] sm:w-[23rem] sm:pt-[30vw] sm:leading-[3] xs:w-[15rem] xs:leading-[2] xs:pt-[15vw] ">
+            <h1 className="sm:text-[2.3rem]">
+              Together, let's reach out for change{" "}
+              <span className="text-[#ffa500] sm:text-[2.3rem]  ">
+                one hand at a time
+              </span>
+            </h1>
+            <p className="sm:text-[1.1rem]">
+              Your support matters more than ever.
+            </p>
+            <button className=" hover:orangeShadow w-[190px] mt-[20px]  h-[55px] border-[3px] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[3px] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.5s] ease-in-out med:mt-[1.8rem] med:m-auto ">
+              Donate Now
+            </button>
+          </div>
+
         </div>
       </div>
       <div className="pt-[50px] m-auto h-[100vh]">
@@ -55,7 +64,7 @@ export default function Home() {
         <div className=" pt-10 flex flex-wrap justify-between w-[100%]  pl-[7%] pr-[7%] m-auto gap-10">
           {provideInfo.map((item) => {
             return (
-              <div className="   relative w-[350px] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto orangeShadow">
+              <div className="   relative w-[350px] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto orangeShadow xs:w-[300px]">
                 <div className="overflow-hidden">
                   <img
                     className="transition-all duration-[0.4s] hover:scale-[1.05] "
