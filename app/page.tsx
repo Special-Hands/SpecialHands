@@ -32,7 +32,7 @@ export default function Home() {
             className=" h-full object-cover "
             width="100%"
             src="/specialArtboard 1.svg"></img>
-          <div className="absolute w-[50rem] pl-[7%]   pt-[20vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] sm:w-[23rem] sm:pt-[30vw] sm:leading-[3] xs:w-[15rem] xs:leading-[2] xs:pt-[15vw] ">
+          <div className="absolute w-[50rem] pl-[7%]   pt-[20vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] sm:w-[23rem] sm:pt-[30vw] sm:leading-[3] xs:w-[15rem] xs:leading-[2] xs:pt-[25vw] ">
             <h1 className="sm:text-[2.3rem]">
               Together, let's reach out for change{" "}
               <span className="text-[#ffa500] sm:text-[2.3rem]  ">
@@ -42,7 +42,7 @@ export default function Home() {
             <p className="sm:text-[1.1rem]">
               Your support matters more than ever.
             </p>
-            <button className=" hover:orangeShadow w-[190px] mt-[20px]  h-[55px] border-[3px] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[3px] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.5s] ease-in-out med:mt-[1.8rem] med:m-auto ">
+            <button className=" hover:orangeShadow w-[190px] mt-[20px]  h-[55px] border-[3px] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[3px] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.3s] ease-in-out med:mt-[1.8rem] med:m-auto ">
               Donate Now
             </button>
           </div>
