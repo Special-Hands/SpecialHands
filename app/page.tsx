@@ -31,6 +31,9 @@ export default function Home() {
           <img
             className=" h-full object-cover "
             width="100%"
+
+            src="/specialArtboard 1.svg"></img>
+
             src="/specialArtboard 1.svg"
           ></img>
           <div className="absolute w-[50rem] pl-[7%]   pt-[20vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] sm:w-[23rem] sm:pt-[30vw] sm:leading-[3] xs:w-[15rem] xs:leading-[2] xs:pt-[15vw] ">
@@ -47,6 +50,7 @@ export default function Home() {
               Donate Now
             </button>
           </div>
+
         </div>
       </div>
       <div className="pt-[50px] m-auto h-[100vh]">
@@ -66,8 +70,7 @@ export default function Home() {
                     className="transition-all duration-[0.4s] hover:scale-[1.05] "
                     width="100%"
                     height="100%"
-                    src={item.bg}
-                  ></img>
+                    src={item.bg}></img>
                 </div>
                 <div className=" mt-[20px] ">
                   {/* <img width='120px'  className="m-auto "  src={item.icon}></img> */}
