@@ -25,7 +25,7 @@ const provideInfo = [
 export default function Home() {
   return (
     <div>
-      <div id="land" className=" flex h-[80vh]  relative">
+      <div id="land" className=" flex h-[80vh] z-[5] relative">
         <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
         <div className="w-full  overflow-hidden">
           <img
@@ -68,7 +68,6 @@ export default function Home() {
                     src={item.bg}></img>
                 </div>
                 <div className=" mt-[20px] ">
-                  {/* <img width='120px'  className="m-auto "  src={item.icon}></img> */}
                   <div className="w-[90%] m-auto">
                     <div>
                       <h2 className="text-[30px] font-bold">
