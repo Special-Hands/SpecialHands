@@ -26,7 +26,7 @@ const provideInfo = [
 export default function Home() {
   return (
     <div className="">
-      <div id="land" className=" flex h-[80vh]  relative">
+      <div id="land" className=" flex h-[90vh]  relative">
         <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
         <div className="w-full  overflow-hidden">
           <img
@@ -34,7 +34,7 @@ export default function Home() {
             width="100%"
             src="/specialArtboard 1.svg"
           ></img>
-          <div className="absolute w-[50rem] pl-[7%]   pt-[20vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] small:w-[23rem] small:pt-[30vw] small:leading-[3] xsmall:w-[15rem] xsmall:leading-[2] xsmall:pt-[25vw] ">
+          <div className="absolute w-[50rem] pl-[7%]   pt-[25vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] small:w-[23rem] small:pt-[25vw] small:leading-[3] xsmall:w-[15rem] xsmall:leading-[2] xsmall:pt-[25vw] ">
             <h1 className="small:text-[2.3rem]">
               Together, let's reach out for change{" "}
               <span className="text-[#ffa500] small:text-[2.3rem]">
@@ -64,7 +64,7 @@ export default function Home() {
         <div className=" pt-10 flex flex-wrap justify-between w-[100%]  pl-[7%] pr-[7%] m-auto gap-10">
           {provideInfo.map((item) => {
             return (
-              <div className="   relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]">
+              <div key={item.title} className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]">
                 <div className="overflow-hidden">
                   <img
                     className="transition-all duration-[0.4s] hover:scale-[1.05] "
@@ -96,7 +96,7 @@ export default function Home() {
         <div className="flex larg:flex-col   justify-around">
           <Image
             className=" realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[90%] "
-            alt="Karina giving out supplies"
+            alt="Karina giving out supplies to people in need"
             width="550"
             height="550"
             src="aboutpic.svg"
@@ -117,7 +117,17 @@ export default function Home() {
       <div className=" w-full">
         <img src="rip.svg" className="translate-y-[-0.05rem]"></img>
       </div>
-      <div className=" "></div>
+      <div className="mt-[5rem] ml-[7%]">
+        <div>
+          
+        <h1>WE NEED YOU</h1>
+        <div className="flex gap-5">
+         <p  className='text-[orange]'>What you can do</p>
+         <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+        </div>
+        </div>
+        
+      </div>
     </div>
   );
 }

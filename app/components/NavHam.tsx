@@ -10,9 +10,9 @@ const items = ['ABOUT US', 'OUR SERVICES', 'CONTACT US', 'DONATE']
   };
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden   w-full">
       {!active && (
-        <button onClick={handleClick} className="900:hidden">
+        <button onClick={handleClick} className=" translate-y-[0.3rem]">
           <Image
             src="navButton.svg"
             alt="hamburger-button"
@@ -22,7 +22,7 @@ const items = ['ABOUT US', 'OUR SERVICES', 'CONTACT US', 'DONATE']
         </button>
       )}
 
-      <div className={active? '' : 'invisible'}>
+      <div className={active? '' : 'absolute right-[100%] '}>
       <button
         onClick={handleClick}
         className={`${
@@ -32,12 +32,12 @@ const items = ['ABOUT US', 'OUR SERVICES', 'CONTACT US', 'DONATE']
         <Image src="xButton.svg" alt="x-button" width={40} height={40}></Image>
       </button>
      
-        <div className= " bg-white h-screen w-screen leading-[2]  pt-10  absolute right-0" >
-          <ul className="gap-10 text-x flex-col  items-start p-10 flex-grow justify-end flex">
+        <div className= " bg-white h-screen w-screen leading-[2] translate-y-[-0.5rem]   pt-10  absolute right-0" >
+          <ul className="gap-10 text-x flex-col  items-start flex-grow justify-end flex">
                 {
                     items.map((item) => {
                         return (
-                            <li className="font-medium text-[2.5rem] hover:text-[#FFA500] transition duration-300 cursor-pointer">
+                            <li className="font-medium transition-all duration-300 text-[2.5rem] hover:text-[#FFA500] pl-10 hover:border-l-[1rem] hover:border-[orange]  cursor-pointer">
                             {item}
                           </li>
                         )
