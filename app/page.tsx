@@ -117,7 +117,16 @@ export default function Home() {
       <div className=" w-[100vw]">
         <img src="rip.svg" className="translate-y-[-0.05rem]"></img>
       </div>
-      <div className=" "></div>
+      <div className="mt-[5rem] ml-[7%]">
+        <div>
+        <h1>WE NEED YOU</h1>
+        <div className="flex gap-5">
+         <p  className='text-[orange]'>What you can do</p>
+         <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+        </div>
+        </div>
+        
+      </div>
     </div>
   );
 }
