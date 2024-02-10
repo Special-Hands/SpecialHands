@@ -39,7 +39,7 @@ export default function Home() {
                 one hand at a time
               </span>
             </h1>
-            <p className="sm:text-[1.1rem]">
+            <p className=" text-[1.4375rem] sm:text-[1.1rem]">
               Your support matters more than ever.
             </p>
             <button className=" hover:orangeShadow w-[190px] mt-[20px]  h-[55px] border-[3px] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[3px] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.3s] ease-in-out med:mt-[1.8rem] med:m-auto ">
