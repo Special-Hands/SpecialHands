@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className=" mt-20 bg-[#FFA500] text-white">
       <footer>
-        <div className=" flex justify-center  flex-wrap gap-5 800:justify-between ">
+        <div className=" flex justify-center  flex-wrap gap-5 1000:justify-between ">
           <div className="pl-5 pt-5">
             <form className="flex flex-col">
               <h2>Join Our News Letter</h2>
