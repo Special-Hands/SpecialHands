@@ -114,7 +114,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className=" w-[100vw]">
+      <div className=" w-full">
         <img src="rip.svg" className="translate-y-[-0.05rem]"></img>
       </div>
       <div className=" "></div>

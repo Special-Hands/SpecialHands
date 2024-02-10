@@ -16,9 +16,7 @@ h1 {
   font-weight: 700;
 }
 
-p {
-  font-size: 1.4375rem;
-}
+
 
 .rip::after {
   content: '';
