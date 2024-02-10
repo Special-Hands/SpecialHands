@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 const provideInfo = [
@@ -24,54 +25,58 @@ const provideInfo = [
 
 export default function Home() {
   return (
-    <div>
-      <div id="land" className=" flex h-[80vh]  relative">
+    <div className="">
+      <div id="land" className=" flex h-[90vh]  relative">
         <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
         <div className="w-full  overflow-hidden">
           <img
             className=" h-full object-cover "
             width="100%"
-            src="/specialArtboard 1.svg"></img>
-          <div className="absolute w-[50rem] pl-[7%]   pt-[20vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] sm:w-[23rem] sm:pt-[30vw] sm:leading-[3] xs:w-[15rem] xs:leading-[2] xs:pt-[25vw] ">
-            <h1 className="sm:text-[2.3rem]">
+            src="/specialArtboard 1.svg"
+          ></img>
+          <div className="absolute w-[50rem] pl-[7%]   pt-[25vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] small:w-[23rem] small:pt-[25vw] small:leading-[3] xsmall:w-[15rem] xsmall:leading-[2] xsmall:pt-[25vw] ">
+            <h1 className="small:text-[2.3rem]">
               Together, let's reach out for change{" "}
-              <span className="text-[#ffa500] sm:text-[2.3rem]  ">
+              <span className="text-[#ffa500] small:text-[2.3rem]">
                 one hand at a time
               </span>
             </h1>
-            <p className="sm:text-[1.1rem]">
+
+
+            <p className=" text-[1.4375rem] sm:text-[1.1rem]">
+
               Your support matters more than ever.
             </p>
-            <button className=" hover:orangeShadow w-[190px] mt-[20px]  h-[55px] border-[3px] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[3px] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.3s] ease-in-out med:mt-[1.8rem] med:m-auto ">
+            <button className=" hover:orangeShadow w-[11.875rem] mt-[1.25rem]  h-[3.4375rem] border-[0.1875rem] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[0.1875rem] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.3s] ease-in-out med:mt-[1.8rem] med:m-auto ">
               Donate Now
             </button>
           </div>
         </div>
       </div>
-      <div className="pt-[50px] m-auto">
+      <div className="pt-[5rem] m-auto">
         <div className="text-center">
           <div className="flex justify-center gap-2">
-            <h3 className=" text-[orange]  text-[20px]">Service </h3>
-            <div className="w-[50px] border-b-[2px]  translate-y-[-45%] border-[orange]"></div>
+            <h3 className=" text-[orange]  text-[1.25rem]">Service </h3>
+            <div className="w-[3.125rem] border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
           </div>
           <h1 className=" ">We Provide</h1>
         </div>
         <div className=" pt-10 flex flex-wrap justify-between w-[100%]  pl-[7%] pr-[7%] m-auto gap-10">
           {provideInfo.map((item) => {
             return (
-              <div className="   relative w-[350px] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto orangeShadow xs:w-[300px]">
+              <div key={item.title} className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]">
                 <div className="overflow-hidden">
                   <img
                     className="transition-all duration-[0.4s] hover:scale-[1.05] "
                     width="100%"
                     height="100%"
-                    src={item.bg}></img>
+                    src={item.bg}
+                  ></img>
                 </div>
-                <div className=" mt-[20px] ">
-                  {/* <img width='120px'  className="m-auto "  src={item.icon}></img> */}
+                <div className=" mt-[1.25rem] ">
                   <div className="w-[90%] m-auto">
                     <div>
-                      <h2 className="text-[30px] font-bold">
+                      <h2 className="text-[1.875rem] font-bold">
                         {item.title.toUpperCase()}
                         <span className=" pl-3 opacity-100 text-[orange] group-hover:opacity-0">
                           &rarr;
@@ -79,13 +84,49 @@ export default function Home() {
                       </h2>
                     </div>
 
-                    <p className="text-[15px] ">{item.body}</p>
+                    <p className="text-[0.9375rem] ">{item.body}</p>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
+      </div>
+      <div className=" bg-[orange] rip mt-[13rem]">
+        <div className="flex larg:flex-col   justify-around">
+          <Image
+            className=" realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[90%] "
+            alt="Karina giving out supplies to people in need"
+            width="550"
+            height="550"
+            src="aboutpic.svg"
+          ></Image>
+          <div className=" pt-10 larg:translate-y-[-9rem] larg:w-[80%] larg:m-auto   text-white w-[35%]">
+            <h1 className="lg:text-[2rem] larg:m-auto small:text-[1.6rem]">
+              ABOUT US
+            </h1>
+            <p className="text-[2rem] lg:text-[1.5rem] small:text-[1.6rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip{" "}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className=" w-full">
+        <img src="rip.svg" className="translate-y-[-0.05rem]"></img>
+      </div>
+      <div className="mt-[5rem] ml-[7%]">
+        <div>
+          
+        <h1>WE NEED YOU</h1>
+        <div className="flex gap-5">
+         <p  className='text-[orange]'>What you can do</p>
+         <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+        </div>
+        </div>
+        
       </div>
     </div>
   );

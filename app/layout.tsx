@@ -17,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LetterHead />
+        {/* <LetterHead /> */}
         <NavBar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
       
     </html>

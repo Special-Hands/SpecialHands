@@ -8,11 +8,11 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'larg': {'max': '1300px'},
-      'med': {'max': '850px'},
-      'medsm': {'max': '650px'},
-      'small': {'max': '500px'},
-      'xsmall': {'max': '400px'}
+      'larg': { 'max': '1300px' },
+      'med': { 'max': '850px' },
+      'medsm': { 'max': '650px' },
+      'small': { 'max': '500px' },
+      'xsmall': { 'max': '400px' }
     },
     extend: {
       backgroundImage: {
@@ -20,9 +20,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      screens: {
-        "800": "800px"
-      }
+      // screens: {
+      //   "800": "800px"
+      // }
     },
   },
   plugins: [],
