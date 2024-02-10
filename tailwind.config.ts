@@ -8,10 +8,11 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      'larg': {'max': '1300px'},
       'med': {'max': '850px'},
       'medsm': {'max': '650px'},
-      'sm': {'max': '500px'},
-      'xs': {'max': '400px'}
+      'small': {'max': '500px'},
+      'xsmall': {'max': '400px'}
     },
     extend: {
       backgroundImage: {
