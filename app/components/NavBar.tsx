@@ -26,8 +26,7 @@ export default function NavBar() {
   return (
     <div
       ref={navScroll}
-      className=" transition-[background] duration-300  fixed active text-white  top-0 z-[50]  bg-transparent"
-    >
+      className=" transition-[background] duration-300  fixed active text-white  top-0 z-[50]  bg-transparent">
       <nav className="flex justify-between px-3 py-[0.5rem] items-center w-screen ">
         <Image src="./Logo.svg" alt="logo" width={100} height={100} />
         <ul className=" gap-10 pr-10  flex text-xl items-center flex-grow justify-end">
@@ -43,6 +42,7 @@ export default function NavBar() {
           <li className="font-medium  transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">
             DONATE
           </li>
+
           <NavHam />
         </ul>
       </nav>
