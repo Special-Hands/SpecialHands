@@ -1,5 +1,6 @@
-"use client";
+
 import Image from "next/image";
+
 
 const provideInfo = [
   {
@@ -24,8 +25,9 @@ const provideInfo = [
 ];
 
 export default function Home() {
+
   return (
-    <div className="">
+    <div className='transition-all duration-300'>
       <div id="land" className=" flex h-[90vh]  relative">
         <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
         <div className="w-full  overflow-hidden">
@@ -93,9 +95,9 @@ export default function Home() {
         </div>
       </div>
       <div className=" bg-[orange] rip mt-[13rem]">
-        <div className="flex larg:flex-col   justify-around">
+        <div className="flex larg:flex-col    justify-around">
           <Image
-            className=" realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[90%] "
+            className="  realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[90%] "
             alt="Karina giving out supplies to people in need"
             width="550"
             height="550"
