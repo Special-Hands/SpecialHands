@@ -58,16 +58,17 @@ export default function Footer() {
             <a>
               <Image
                 src="/youtube.svg"
-                alt="twitter-logo"
+                alt="youtube-logo"
                 width={20}
                 height={20}></Image>
             </a>
             <a>
               <Image
+                className="translate-y-[-0.17rem]"
                 src="/facebook.svg"
-                alt="twitter-logo"
-                width={20}
-                height={20}></Image>
+                alt="facebook-logo"
+                width={10}
+                height={10}></Image>
             </a>
           </div>
         </div>
