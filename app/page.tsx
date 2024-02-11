@@ -26,17 +26,20 @@ const provideInfo = [
 export default function Home() {
   return (
     <div>
-      <div>
+      <nav>
         <NavBar></NavBar>
-      </div>
+      </nav>
       <div className="transition-all duration-300">
-        <div id="land" className=" flex h-[90vh]  relative">
+        {/* -------------------------------------------------------------------------- */}
+        {/* HERO SECTION  */}
+        <section id="hero" className=" flex h-[90vh]  relative">
           <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
           <div className="w-full  overflow-hidden">
             <img
               className=" h-full object-cover "
               width="100%"
-              src="/specialArtboard 1.svg"></img>
+              src="/specialArtboard 1.svg"
+            ></img>
             <div className="absolute w-[50rem] pl-[7%]   pt-[25vh] text-white  overflow-hidden top-0  flex flex-col med:justify-center  med:leading-[2]  med:w-[40rem] med:text-center med:inset-0   med:m-auto  med:pl-[0] medsm:w-[30rem] medsm:pt-[15vw] small:w-[23rem] small:pt-[25vw] small:leading-[3] xsmall:w-[15rem] xsmall:leading-[2] xsmall:pt-[25vw] ">
               <h1 className="small:text-[2.3rem]">
                 Together, let's reach out for change{" "}
@@ -53,8 +56,10 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </div>
-        <div className="pt-[5rem] m-auto">
+        </section>
+        {/* ------------------------------------------------------------------------- */}
+        {/* SERVICES SECTION */}
+        <section id='services' className="pt-[5rem] m-auto">
           <div className="text-center">
             <div className="flex justify-center gap-2">
               <h3 className=" text-[orange]  text-[1.25rem]">Service </h3>
@@ -67,13 +72,15 @@ export default function Home() {
               return (
                 <div
                   key={item.title}
-                  className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]">
+                  className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]"
+                >
                   <div className="overflow-hidden">
                     <img
                       className="transition-all duration-[0.4s] hover:scale-[1.05] "
                       width="100%"
                       height="100%"
-                      src={item.bg}></img>
+                      src={item.bg}
+                    ></img>
                   </div>
                   <div className=" mt-[1.25rem] ">
                     <div className="w-[90%] m-auto">
@@ -93,15 +100,18 @@ export default function Home() {
               );
             })}
           </div>
-        </div>
-        <div className=" bg-[orange] rip mt-[13rem]">
+        </section>
+        {/* --------------------------------------------------------------------------------------------------- */}
+        {/* ABOUT SECTION */}
+        <section id='about' className=" bg-[orange] rip mt-[13rem]">
           <div className="flex larg:flex-col    justify-around">
             <Image
               className="  realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[90%] "
               alt="Karina giving out supplies to people in need"
               width="550"
               height="550"
-              src="aboutpic.svg"></Image>
+              src="aboutpic.svg"
+            ></Image>
             <div className=" pt-10 larg:translate-y-[-9rem] larg:w-[80%] larg:m-auto   text-white w-[35%]">
               <h1 className="lg:text-[2rem] larg:m-auto small:text-[1.6rem]">
                 ABOUT US
@@ -114,11 +124,13 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
+        </section>
         <div className=" w-full">
           <img src="rip.svg" className="translate-y-[-0.05rem]"></img>
         </div>
-        <div className="mt-[5rem] ml-[7%]">
+        {/* ----------------------------------------------------------------------------------- */}
+        {/* CALL TO ACTION */}
+        <section id='action' className="mt-[5rem] ml-[7%]">
           <div>
             <h1>WE NEED YOU</h1>
             <div className="flex gap-5">
@@ -126,7 +138,7 @@ export default function Home() {
               <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
       <Footer></Footer>
     </div>
