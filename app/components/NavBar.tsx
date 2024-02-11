@@ -39,7 +39,7 @@ export default function NavBar() {
             );
           })}
         </ul>
-        <ul className="flex gap-5 text-white 800:hidden">
+        <ul className="flex gap-5 text-white ">
           <li className="font-medium  transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">
             DONATE
           </li>
