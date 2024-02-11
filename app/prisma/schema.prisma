@@ -16,6 +16,7 @@ model person {
   name String 
   info String
   url String @unique
+  path String @unique
   createdAt DateTime @default(now())
 
 
