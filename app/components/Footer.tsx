@@ -20,27 +20,27 @@ export default function Footer() {
           </div>
           <div className="flex p-5 gap-1  800:gap-10 ">
             <div className="">
-              <h3 className="font-semi-bold text-lg ">CONTACT</h3>
+              <h3 className="font-bold text-lg ">CONTACT</h3>
               <div className="text-sm">
-                <p className="text-black">347-501-0132</p>
-                <p className="text-black">specialhands@gmail.com</p>
+                <p>347-501-0132</p>
+                <p>specialhands@gmail.com</p>
               </div>
             </div>
 
             <div className="text-center">
-              <h3 className="font-semi-bold text-lg">FOLLOW US</h3>
+              <h3 className="font-bold text-lg">FOLLOW US</h3>
               <div className="text-sm sm:text-md">
-                <p className=" text-black">Instagram</p>
-              <p className="text-black">Youtube</p>
+                <p className=" ">Instagram</p>
+              <p className="">Youtube</p>
               </div>
               
             </div>
 
             <div className="text-center">
-              <h3 className="font-semi-bold text-lg">LEGAL</h3>
+              <h3 className="font-bold text-lg">LEGAL</h3>
               <div className="text-sm sm:text-md">
-              <p className="text-black">Privacy Policy</p>
-                <p className="text-black">Terms & Conditions</p>
+              <p className="">Privacy Policy</p>
+                <p className="">Terms & Conditions</p>
               </div>
             </div>
           </div>
