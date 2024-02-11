@@ -10,6 +10,7 @@ const config: Config = {
     screens: {
       'larg': { 'max': '1300px' },
       'med': { 'max': '850px' },
+      'mid': {'max' : '750px'},
       'medsm': { 'max': '650px' },
       'small': { 'max': '500px' },
       'xsmall': { 'max': '400px' }
