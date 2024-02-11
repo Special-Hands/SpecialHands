@@ -1,6 +1,4 @@
-
 import Image from "next/image";
-
 
 const provideInfo = [
   {
@@ -25,9 +23,8 @@ const provideInfo = [
 ];
 
 export default function Home() {
-
   return (
-    <div className='transition-all duration-300'>
+    <div className="transition-all duration-300">
       <div id="land" className=" flex h-[90vh]  relative">
         <div className="absolute h-[100%] w-[100%] bg-black opacity-[80%]"></div>
         <div className="w-full  overflow-hidden">
@@ -44,9 +41,7 @@ export default function Home() {
               </span>
             </h1>
 
-
             <p className=" text-[1.4375rem] sm:text-[1.1rem]">
-
               Your support matters more than ever.
             </p>
             <button className=" hover:orangeShadow w-[11.875rem] mt-[1.25rem]  h-[3.4375rem] border-[0.1875rem] border-[orange]   bg-[orange]  hover:bg-[white] hover:border-[0.1875rem] hover:text-[rgb(255,165,0)] hover:border-[orange] transition-all duration-[0.3s] ease-in-out med:mt-[1.8rem] med:m-auto ">
@@ -66,7 +61,10 @@ export default function Home() {
         <div className=" pt-10 flex flex-wrap justify-between w-[100%]  pl-[7%] pr-[7%] m-auto gap-10">
           {provideInfo.map((item) => {
             return (
-              <div key={item.title} className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]">
+              <div
+                key={item.title}
+                className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]"
+              >
                 <div className="overflow-hidden">
                   <img
                     className="transition-all duration-[0.4s] hover:scale-[1.05] "
@@ -121,14 +119,12 @@ export default function Home() {
       </div>
       <div className="mt-[5rem] ml-[7%]">
         <div>
-          
-        <h1>WE NEED YOU</h1>
-        <div className="flex gap-5">
-         <p  className='text-[orange]'>What you can do</p>
-         <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+          <h1>WE NEED YOU</h1>
+          <div className="flex gap-5">
+            <p className="text-[orange]">What you can do</p>
+            <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+          </div>
         </div>
-        </div>
-        
       </div>
     </div>
   );
