@@ -13,7 +13,8 @@ const config: Config = {
       'mid': {'max' : '750px'},
       'medsm': { 'max': '650px' },
       'small': { 'max': '500px' },
-      'xsmall': { 'max': '400px' }
+      'xsmall': { 'max': '400px' },
+      '550': {'max': '520px'}
     },
     extend: {
       backgroundImage: {

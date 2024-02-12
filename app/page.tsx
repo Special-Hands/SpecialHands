@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Actions from "./components/Actions";
 const provideInfo = [
   {
     title: "Education",
@@ -20,6 +21,27 @@ const provideInfo = [
     bg: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     icon: "/customer.png",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip  ",
+  },
+];
+
+const action = [
+  {
+    title: "Donate",
+    icon: "/heart (2).png",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    index: 0,
+  },
+  {
+    title: "Sponsor",
+    icon: "/support (3).png",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    index: 1,
+  },
+  {
+    title: "Share",
+    icon: "/campaign.png",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  ",
+    index: 2,
   },
 ];
 
@@ -59,13 +81,18 @@ export default function Home() {
         </section>
         {/* ------------------------------------------------------------------------- */}
         {/* SERVICES SECTION */}
-        <section id='services' className="pt-[5rem] m-auto">
+        <section id="services" className="pt-[5rem] m-auto">
           <div className="text-center">
             <div className="flex justify-center gap-2">
               <h3 className=" text-[orange]  text-[1.25rem]">Service </h3>
               <div className="w-[3.125rem] border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
             </div>
-            <h1 className=" ">We Provide</h1>
+            <h1 className="">OUR WORK</h1>
+            <h1 className="text-[1.5rem] font-medium m-auto w-[80%]">
+              We partner with local organizations in places like the Dominican
+              Republic to aid children and families in need. Together, we
+              empower underserved communities.
+            </h1>
           </div>
           <div className=" pt-10 flex flex-wrap justify-between w-[100%]  pl-[7%] pr-[7%] m-auto gap-10">
             {provideInfo.map((item) => {
@@ -103,20 +130,23 @@ export default function Home() {
         </section>
         {/* --------------------------------------------------------------------------------------------------- */}
         {/* ABOUT SECTION */}
-        <section id='about' className=" bg-[orange] rip mt-[13rem]">
+        <section
+          id="about"
+          className=" h-[full]     bg-[orange] rip mt-[13rem]"
+        >
           <div className="flex larg:flex-col    justify-around">
             <Image
-              className="  realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[90%] "
+              className="  realtive translate-y-[-14rem] larg:translate-y-[-10rem] larg:m-auto mt-[5rem] medsm:w-[85%] "
               alt="Karina giving out supplies to people in need"
               width="550"
               height="550"
               src="aboutpic.svg"
             ></Image>
-            <div className=" pt-10 larg:translate-y-[-9rem] larg:w-[80%] larg:m-auto   text-white w-[35%]">
-              <h1 className="lg:text-[2rem] larg:m-auto small:text-[1.6rem]">
+            <div className=" pt-10 pb-[15rem] med:pb-[0rem] larg:translate-y-[-9rem] larg:w-[80%] larg:m-auto   text-white w-[35%]">
+              <h1 className="lg:text-[2rem] translate-y-[4rem] med:translate-y-[-2rem]  larg:m-auto ">
                 ABOUT US
               </h1>
-              <p className="text-[2rem] lg:text-[1.5rem] small:text-[1.6rem]">
+              <p className="text-[2rem] pt-10 translate-y-[4rem] med:translate-y-[-4rem]  lg:text-[1.5rem] small:text-[1.8rem]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -125,17 +155,21 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div className=" w-full">
-          <img src="rip.svg" className="translate-y-[-0.05rem]"></img>
-        </div>
+
         {/* ----------------------------------------------------------------------------------- */}
         {/* CALL TO ACTION */}
-        <section id='action' className="mt-[5rem] ml-[7%]">
+        <section id="action" className="mt-[5rem] text-center ">
           <div>
-            <h1>WE NEED YOU</h1>
-            <div className="flex gap-5">
-              <p className="text-[orange]">What you can do</p>
-              <div className="w-[3.125rem]  border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+            <h1 className="text-[5rem]">WE NEED YOU</h1>
+            <div className="w-[8rem] m-auto border-b-[2px] border-b-[orange]  "></div>
+            <div className="flex justify-center gap-5">
+              <p className="font-medium w-[70%] pt-5 text-[2rem] ">
+                United, we can create meaningful change. The more hands we have
+                on deck, the stronger our impact will be.
+              </p>
+            </div>
+            <div className="flex mb-[10rem] mt-20  justify-center">
+              <Actions items={action} />
             </div>
           </div>
         </section>

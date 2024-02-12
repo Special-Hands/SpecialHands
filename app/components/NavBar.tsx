@@ -9,13 +9,15 @@ interface NavProps {
 export default function NavBar({ transparent = true }: NavProps) {
   const items = ["ABOUT US", "OUR SERVICES", "CONTACT US"];
   const navScroll = useRef<HTMLDivElement>(null);
-
+  const [white, setWhite] = useState(false);
   const handleScroll = () => {
     if (transparent) {
+      setWhite(true);
       if (window.scrollY >= 100) {
         navScroll.current!.style.background = "white";
         navScroll.current!.style.color = "black";
       } else {
+        setWhite(false);
         navScroll.current!.style.background = "black";
         navScroll.current!.style.color = "white";
         navScroll.current!.style.background = "transparent";
@@ -54,7 +56,7 @@ export default function NavBar({ transparent = true }: NavProps) {
             DONATE
           </li>
 
-          <NavHam />
+          <NavHam white={white} />
         </ul>
       </nav>
     </div>
