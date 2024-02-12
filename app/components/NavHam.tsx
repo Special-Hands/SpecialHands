@@ -5,7 +5,7 @@ interface HamProps {
   white: boolean;
 }
 function NavHam({ white = false }: HamProps) {
-  const items = ["ABOUT US", "OUR SERVICES", "CONTACT US", "DONATE"];
+  const items = ["HOME","ABOUT US", "OUR SERVICES", "CONTACT US", "DONATE"];
   const [active, setActive] = useState(false);
   const slide = useRef<HTMLDivElement>(null);
   const handleClick = () => {
@@ -57,7 +57,7 @@ function NavHam({ white = false }: HamProps) {
               ></Image>
             </button>
           </div>
-          <ul className="gap-10 text-x flex-col  items-start flex-grow justify-end flex">
+          <ul className="gap-10 text-x flex-col  translate-y-[3.5rem] items-start flex-grow justify-end flex">
             {items.map((item) => {
               return (
                 <li className="font-medium  text-black transition-all duration-300 text-[2.5rem] hover:text-[#FFA500] pl-10 hover:border-l-[1rem] hover:border-[orange]  cursor-pointer">
