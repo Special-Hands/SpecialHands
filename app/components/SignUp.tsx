@@ -1,11 +1,16 @@
 "use client";
+import 'aos/dist/aos.css';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { FormEvent, FormEventHandler, useState } from "react";
+import { FormEvent, FormEventHandler, useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { authParams } from "../login/page";
-
+import Aos from "aos";
+import Link from "next/link";
 export default function SignUp() {
+  useEffect(() => {
+    Aos.init()
+  }, [])
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,9 +22,9 @@ export default function SignUp() {
       email,
       password,
       options: {
-        name: name,
         emailRedirect: `${location.origin}/auth/callback`,
       },
+      
     };
 
     try {
@@ -43,16 +48,14 @@ export default function SignUp() {
   return (
     <div>
       <div
-        className=" shadow sign-card  rounded pt-[50px]  inset-[0] justify-center m-auto  w-[25rem] h-[35rem]"
+        data-aos='flip-right'
+        className=" shadow sign-card  bg-white  rounded pt-[50px]  inset-[0] justify-center m-auto  w-[25rem] h-[31rem]"
         id="sign-up"
       >
-        <img
-          className="m-auto"
-          src="https://static.thenounproject.com/png/70749-200.png"
-          width="40px"
-        ></img>
-        <h1 className="font-[450] text-center">Sign-Up!</h1>
-        <p className="text-center pb-10">Create your account</p>
+        
+        <h1 className="font-[300] text-[2rem] text-center">Sign-Up!</h1>
+        <p className="text-center text-[] ">Create your account</p>
+        <Link href='/login'><p  className="text-center text-[0.8rem] mb-8">Have an account?<span className="underline" >Log In</span></p></Link>
         <form
           onSubmit={(e) => handleSubmit(e)}
           className="m-auto flex flex-col gap-3 w-[80%] "
@@ -97,7 +100,7 @@ export default function SignUp() {
           </div>
           <button
             type="submit"
-            className="w-[10rem] bg-black rounded m-auto mt-10 text-white hover:opacity-[80%] h-[2.5rem]"
+            className="w-[10rem] bg-[orange] rounded m-auto mt-6 text-white hover:opacity-[80%] h-[2.5rem]"
           >
             {" "}
             Complete Sign-up
