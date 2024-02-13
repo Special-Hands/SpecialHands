@@ -1,12 +1,17 @@
 "use client";
-import { useState } from "react";
+import 'aos/dist/aos.css';
+import { useEffect, useState } from "react";
 import { authParams } from "../login/page";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { FormEvent, FormEventHandler } from "react";
 import { Button } from "@mui/material";
-
+import Aos from "aos";
+import Link from "next/link";
 export default function LogIn() {
+  useEffect(() => {
+    Aos.init()
+  }, [])
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -32,17 +37,16 @@ export default function LogIn() {
   return (
     <div className="">
       <div
-        data-aos="flip-right"
-        className=" shadow sign-card rounded pt-[50px] inset-[0] justify-center m-auto  w-[400px] h-[500px]"
+        data-aos="flip-left"
+        className=" shadow sign-card bg-white rounded pt-[50px] inset-[0] justify-center m-auto  w-[400px] h-[500px]"
         id="sign-up"
       >
-        <img
-          className="m-auto"
-          src="https://static-00.iconduck.com/assets.00/login-icon-1024x854-wqjh0ggy.png"
-          width="40px"
-        ></img>
-        <h1 className="font-[450] text-center">Welcome!</h1>
-        <p className="text-center pb-10">Sign in to your account</p>
+        <div className="flex ">
+          
+        </div>
+        <h1 className="font-[300] text-[2rem] text-center">Welcome!</h1>
+        <p className="text-center text-[1.3rem] ">Sign in to your account</p>
+        <Link href='/signup'><p  className="text-center text-[0.8rem] mb-8">Dont have an account?<span className="underline" >Sign Up</span></p></Link>
 
         <form onSubmit={(e) => handleSubmit(e)} className="m-auto flex flex-col gap-3 w-[80%]">
           <div className="flex justify-center flex-col">
@@ -88,7 +92,7 @@ export default function LogIn() {
           </div>
           <button
             type="submit"
-            className="w-[10rem] bg-black rounded m-auto mt-10 text-white hover:opacity-[80%] h-[2.5rem]"
+            className="w-[10rem] bg-[orange] rounded m-auto mt-10 text-white hover:opacity-[80%] h-[2.5rem]"
           >
             {" "}
             Log-In

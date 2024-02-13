@@ -1,7 +1,8 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import NavHam from "./NavHam";
-import Link from "next/link";
+
 import { useState, useEffect, useRef } from "react";
 interface NavProps {
   transparent?: boolean;
@@ -40,12 +41,12 @@ export default function NavBar({ transparent = true }: NavProps) {
           : " transition-[background] duration-300  fixed active text-black  top-0 z-[50]  bg-white"
       }
     >
-      <nav className="flex justify-between px-3 py-[0.5rem] pl-[2rem] items-center w-screen ">
-        <Image className={white? "opacity-100" : "opacity-[70%]"} src="./Logo.svg" alt="logo" width={100} height={100} />
+      <nav className="flex justify-between px-3 py-[0.5rem] pl-[2rem] p-4 items-center w-screen ">
+        <Link href='/'><Image className={white || !transparent? "opacity-100" : "opacity-[70%]"} src="./Logo.svg" alt="logo" width={110} height={110} /></Link>
         <ul className=" gap-10 pr-10  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
             return (
-              <li className=" mid:hidden cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
+              <li className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
                 {item}
               </li>
             );
