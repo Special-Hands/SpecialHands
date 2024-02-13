@@ -11,7 +11,7 @@ datasource db {
   directUrl         = env("DIRECT_URL")
 }
 
-model person {
+model sponsee {
   id Int @id @default(autoincrement()) @unique
   name String 
   info String
