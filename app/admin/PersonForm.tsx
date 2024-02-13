@@ -20,7 +20,7 @@ export function PersonForm() {
       data.append("description", description);
       data.append("file", file);
 
-      const res = await fetch("/api/person", {
+      const res = await fetch("/api/sponsee", {
         method: "POST",
        body: data
       });
