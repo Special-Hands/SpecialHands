@@ -1,4 +1,4 @@
-import create from "./createPerson";
+import create from "./createSponsee";
 
 export default {
     create,
