@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div>
       <nav>
-        <NavBar></NavBar>
+        <NavBar ></NavBar>
       </nav>
       <div className="transition-all duration-300">
         {/* -------------------------------------------------------------------------- */}

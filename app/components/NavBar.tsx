@@ -40,7 +40,7 @@ export default function NavBar({ transparent = true }: NavProps) {
           : " transition-[background] duration-300  fixed active text-black  top-0 z-[50]  bg-white"
       }
     >
-      <nav className="flex justify-between px-3 py-[0.5rem] items-center w-screen ">
+      <nav className="flex justify-between px-3 py-[0.5rem] pl-[2rem] items-center w-screen ">
         <Image className={white? "opacity-100" : "opacity-[70%]"} src="./Logo.svg" alt="logo" width={100} height={100} />
         <ul className=" gap-10 pr-10  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
