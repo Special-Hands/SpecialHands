@@ -2,7 +2,7 @@ import { prisma } from "@/app/db";
 import { NextRequest } from "next/server";
 import supabase from "@/app/Utils/supabaseClient";
 
-export default async function createPerson(req: NextRequest) {
+export default async function createSponsee(req: NextRequest) {
   const data = await req.formData();
   const file: File | null = data.get("file") as unknown as File;
   const name: string = data.get("name") as string;
