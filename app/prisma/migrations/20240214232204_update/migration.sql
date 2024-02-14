@@ -1,11 +1,5 @@
-/*
-  Warnings:
-
-  - You are about to drop the `person` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-DROP TABLE "person";
+-- CreateEnum
+CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
 
 -- CreateTable
 CREATE TABLE "sponsee" (
@@ -19,6 +13,18 @@ CREATE TABLE "sponsee" (
     CONSTRAINT "sponsee_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "user" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "hashedPassword" TEXT NOT NULL,
+    "role" "Role" NOT NULL DEFAULT 'USER',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "user_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "sponsee_id_key" ON "sponsee"("id");
 
@@ -27,3 +33,6 @@ CREATE UNIQUE INDEX "sponsee_url_key" ON "sponsee"("url");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "sponsee_path_key" ON "sponsee"("path");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_id_key" ON "user"("id");
