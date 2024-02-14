@@ -16,5 +16,6 @@ export async function GET(request: NextRequest) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(requestUrl.origin)
+  const loginUrl = new URL('/login', requestUrl.origin); // Construct the full URL for the login page
+    return NextResponse.redirect(loginUrl.toString());
 }

@@ -1,8 +1,9 @@
 "use client";
 import 'aos/dist/aos.css';
+import {CircularProgress} from '@mui/material';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { FormEvent, FormEventHandler, useEffect, useState } from "react";
+import { FormEvent, FormEventHandler, use, useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { authParams } from "../login/page";
 import Aos from "aos";
@@ -11,6 +12,7 @@ export default function SignUp() {
   useEffect(() => {
     Aos.init()
   }, [])
+  const [signedUp, setSignedUp] = useState(false)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +24,7 @@ export default function SignUp() {
       email,
       password,
       options: {
-        emailRedirect: `${location.origin}/auth/callback`,
+        emailRedirect: `${location.origin}/auth/callback/`,
       },
       
     };
@@ -38,6 +40,7 @@ export default function SignUp() {
     setName("");
     setEmail("");
     setPassword("");
+    setSignedUp(true)
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -52,8 +55,10 @@ export default function SignUp() {
         className=" shadow sign-card  bg-white  rounded pt-[50px]  inset-[0] justify-center m-auto  w-[25rem] h-[31rem]"
         id="sign-up"
       >
-        
-        <h1 className="font-[300] text-[2rem] text-center">Sign-Up!</h1>
+        {
+         !signedUp? (
+        <div>
+            <h1 className="font-[300] text-[2rem] text-center">Sign-Up!</h1>
         <p className="text-center text-[] ">Create your account</p>
         <Link href='/login'><p  className="text-center text-[0.8rem] mb-8">Have an account?<span className="underline" >Log In</span></p></Link>
         <form
@@ -65,6 +70,7 @@ export default function SignUp() {
               Name
             </label>
             <input
+              required
               id="name"
               name="name"
               value={name}
@@ -78,6 +84,7 @@ export default function SignUp() {
               Email
             </label>
             <input
+              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               id="email"
@@ -90,6 +97,7 @@ export default function SignUp() {
               Password
             </label>
             <input
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               id="password"
@@ -106,6 +114,20 @@ export default function SignUp() {
             Complete Sign-up
           </button>
         </form>
+        </div>
+          )
+          :
+          (
+            <div>
+            <h2 className=' font-light text-[2rem] text-gray-500 pt-10 text-center'>Check Email For Confirmation</h2>
+            <div className='flex justify-center pt-10 w-full'>
+            <CircularProgress  color='inherit' />
+            </div>
+            </div>
+          )
+          
+        }
+        
       </div>
     </div>
   );

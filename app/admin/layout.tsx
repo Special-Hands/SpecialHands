@@ -7,7 +7,7 @@ export default function Layout({
 }>) {
   return (
     <div>
-      <SideBar></SideBar>
+      <SideBar/>
       {children}
     </div>
   );

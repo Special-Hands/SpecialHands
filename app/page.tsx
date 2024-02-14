@@ -2,6 +2,8 @@ import Image from "next/image";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Actions from "./components/Actions";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+
 const provideInfo = [
   {
     title: "Education",
@@ -85,7 +87,7 @@ export default function Home() {
         </section>
         {/* ------------------------------------------------------------------------- */}
         {/* SERVICES SECTION */}
-        <section id="services" className="pt-[5rem] m-auto">
+        <section id="services" className="pt-[5rem] pb-[13rem] m-auto">
           <div className="text-center">
             <div className="flex justify-center gap-2">
               <h3 className=" text-[orange]  text-[1.25rem]">Service </h3>
@@ -138,7 +140,7 @@ export default function Home() {
         {/* ABOUT SECTION */}
         <section
           id="about"
-          className=" h-[full]     bg-[orange] rip mt-[13rem]"
+          className=" h-[full] bot    bg-[orange] rip "
         >
           <div className="flex larg:flex-col    justify-around">
             <Image
@@ -148,7 +150,7 @@ export default function Home() {
               height="550"
               src="aboutpic.svg"
             ></Image>
-            <div className=" pt-10 pb-[15rem] med:pb-[0rem] larg:translate-y-[-9rem] larg:w-[80%] larg:m-auto   text-white w-[35%]">
+            <div className=" pt-10 translate-y-[-2rem] pb-[15rem] med:pb-[0rem] larg:translate-y-[-9rem] larg:w-[80%] larg:m-auto   text-white w-[35%]">
               <h1 className="lg:text-[2rem] translate-y-[4rem] med:translate-y-[-2rem]  larg:m-auto ">
                 ABOUT US
               </h1>
