@@ -1,3 +1,4 @@
+import { SponseeForm } from "../SponseeForm";
 export default function sponserships() {
   return (
     <div className="ml-[16rem] pt-[3.5rem] flex  ">
@@ -29,8 +30,9 @@ export default function sponserships() {
             Add a Sponsee
           </button>
         </div>
-
         {/* ********** */}
+
+        <SponseeForm></SponseeForm>
       </div>
     </div>
   );
