@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export function PersonForm() {
+export function SponseeForm() {
   const [active, setActive] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [description, setDescription] = useState<string>("");
