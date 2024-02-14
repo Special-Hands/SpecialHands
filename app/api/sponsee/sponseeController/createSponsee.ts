@@ -20,7 +20,7 @@ export default async function createPerson(req: NextRequest) {
   const fileName = file.name;
 
   const { error } = await supabase.storage
-    .from("personImg")
+    .from("sponseeImg")
     .upload(`uploads/${fileName}`, buffer, {
       contentType: mimeType,
       upsert: true,
@@ -33,13 +33,13 @@ export default async function createPerson(req: NextRequest) {
     });
   }
 
-  const bucketName = "personImg";
+  const bucketName = "sponseeImg";
   const filePath = `uploads/${fileName}`;
   const supabaseUrl = process.env.SUPABASE_URL;
   const projectId = supabaseUrl?.split(".")[0].split("//")[1];
   const fileUrl = `https://${projectId}.supabase.co/storage/v1/object/public/${bucketName}/${filePath}`;
 
-  const person = await prisma.person.create({
+  const sponsee = await prisma.sponsee.create({
     data: {
       name: name,
       info: description,
@@ -48,7 +48,7 @@ export default async function createPerson(req: NextRequest) {
     },
   });
     
-    return new Response(JSON.stringify(person), {
+    return new Response(JSON.stringify(sponsee), {
         status:200
     })
 }
