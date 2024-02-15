@@ -28,10 +28,9 @@ enum Role {
 }
 
 model user {
-  id Int @id @default(autoincrement()) @unique
+  uid String @unique
   name String
   email String
-  hashedPassword String
   role Role @default(USER)
   createdAt DateTime @default(now())
 }
