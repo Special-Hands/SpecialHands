@@ -1,6 +1,6 @@
 "use client";
-import NavBar from "../components/NavBar";
-import LogIn from "../components/LogIn";
+import NavBar from "../components/layout/NavBar";
+import LogIn from "../components/layout/LogIn";
 
 export interface authParams {
   name?: string;

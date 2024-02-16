@@ -1,16 +1,36 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import NavHam from "./NavHam";
+import NavHam from "../ui/NavHam";
 
 import { useState, useEffect, useRef } from "react";
+import { isSignedIn } from "@/app/Utils/AuthHelpers";
 interface NavProps {
   transparent?: boolean;
 }
 export default function NavBar({ transparent = true }: NavProps) {
   const items = ["ABOUT US", "OUR SERVICES", "CONTACT US"];
+  const [user, setUser] = useState(false);
   const navScroll = useRef<HTMLDivElement>(null);
   const [white, setWhite] = useState(false);
+
+  //check if user is signed in
+  useEffect(() => {
+    const checkAuth = async() => {
+    const isAuthenticated =  await isSignedIn()
+    if (isAuthenticated){
+      
+    }
+    }
+    checkAuth()
+  }, [])
+  
+  
+
+
+
+
+  //navbar goes from transparent to white when user scrolls to a certain point
   const handleScroll = () => {
     if (transparent) {
       setWhite(true);
@@ -25,6 +45,8 @@ export default function NavBar({ transparent = true }: NavProps) {
       }
     }
   };
+
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -42,7 +64,15 @@ export default function NavBar({ transparent = true }: NavProps) {
       }
     >
       <nav className="flex justify-between px-3 py-[0.5rem] pl-[2rem] p-4 items-center w-screen ">
-        <Link href='/'><Image className={white || !transparent? "opacity-100" : "opacity-[70%]"} src="./Logo.svg" alt="logo" width={110} height={110} /></Link>
+        <Link href="/">
+          <Image
+            className={white || !transparent ? "opacity-100" : "opacity-[70%]"}
+            src="./Logo.svg"
+            alt="logo"
+            width={110}
+            height={110}
+          />
+        </Link>
         <ul className=" gap-10 pr-10  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
             return (
