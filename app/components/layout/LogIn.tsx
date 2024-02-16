@@ -9,6 +9,7 @@ import { Button } from "@mui/material";
 import Aos from "aos";
 import Link from "next/link";
 import { isSignedIn } from "../../Utils/AuthHelpers";
+import { quickFetch } from "@/app/Utils/fetchHelpers";
 export default function LogIn() {
   useEffect(() => {
     Aos.init();
@@ -21,8 +22,11 @@ export default function LogIn() {
   const handleLogIn = async () => {
     try {
       await supabase.auth.signInWithPassword({ email, password });
-      const userToken = await isSignedIn()
-      
+      const userCred = await isSignedIn()
+      const url = `api/log-in?uid=${userCred?.id}`
+      const user = await quickFetch(url, 'get', {}, {'Authorization': `Bearer ${userCred?.webToken}`})
+      localStorage.setItem('user', JSON.stringify({name: user.name, email: user.email}))
+      console.log(user.name)
     } catch (err) {
       if (err instanceof Error) {
         console.warn(err);

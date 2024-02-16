@@ -1,13 +1,15 @@
 
-export const quickFetch = async(url: string, method: string, body: object) => {
+export const quickFetch = async(url: string, method: string, body = {}, headers = {}) => {
     try {
-        const res = await fetch(url, {
+        const options : RequestInit = {
             method: method.toUpperCase(),
             headers: {
+                ...headers,
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(body)
-        });
+        }
+        if (Object.entries(body).length !== 0) options.body = JSON.stringify(body)
+        const res = await fetch(url, options );
         if (!res.ok) throw new Error('Server-side Error')
         const jsonRes = res.json()
         return jsonRes
