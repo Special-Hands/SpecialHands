@@ -2,14 +2,15 @@ import { NextRequest } from "next/server";
 import { logIn } from "./log-in-controllers/login";
 import { UUID } from "crypto";
 import { validateUser } from "../api-helpers";
-
-export const GET = async(req: NextRequest) => {
+import { headers } from 'next/headers'
+export const GET = async(req: any) => {
     try {
         const isAuthenticated = validateUser(req)
-        if (isAuthenticated) {
+        if (!isAuthenticated) {
             const params : any = req.nextUrl.searchParams
             const uid = params.uid
-            const user  = await logIn(uid.id)
+            console.log(uid)
+            const user  = await logIn(uid)
             return new Response(JSON.stringify(user), {
                 status: 200,
                 headers: {
@@ -17,8 +18,7 @@ export const GET = async(req: NextRequest) => {
                 }
             }) 
         } else {
-            return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-                status: 401,
+            return new Response(JSON.stringify({ error: isAuthenticated }), {
                 headers: {
                     'Content-type': 'application/json'
                 }
@@ -29,7 +29,6 @@ export const GET = async(req: NextRequest) => {
         const errMessage = err instanceof Error? err.message : 'Unkown Error'
         console.warn(errMessage)
         return new Response(JSON.stringify({ error: errMessage }), {
-            status: 404,
             headers: {
                 'Content-type': 'application/json'
             }

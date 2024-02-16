@@ -2,29 +2,32 @@
 import Link from "next/link";
 import Image from "next/image";
 import NavHam from "../ui/NavHam";
-
+import { quickFetch } from "@/app/Utils/fetchHelpers";
 import { useState, useEffect, useRef } from "react";
 import { isSignedIn } from "@/app/Utils/AuthHelpers";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import UserIcon from "../ui/UserIcon";
 interface NavProps {
   transparent?: boolean;
 }
 export default function NavBar({ transparent = true }: NavProps) {
   const items = ["ABOUT US", "OUR SERVICES", "CONTACT US"];
-  const [user, setUser] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('user')? true: false));
+
   const navScroll = useRef<HTMLDivElement>(null);
   const [white, setWhite] = useState(false);
 
   //check if user is signed in
   useEffect(() => {
     const checkAuth = async() => {
-    const isAuthenticated =  await isSignedIn()
-    if (isAuthenticated){
-      
-    }
+    const supabase = createClientComponentClient();
+    const session = await supabase.auth.getSession()
+    if (!session.data) {
+      setIsAuthenticated(false);
+    } 
     }
     checkAuth()
   }, [])
-  
   
 
 
@@ -73,7 +76,7 @@ export default function NavBar({ transparent = true }: NavProps) {
             height={110}
           />
         </Link>
-        <ul className=" gap-10 pr-10  flex text-xl items-center flex-grow justify-end">
+        <ul className=" gap-10 pr-4  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
             return (
               <li className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
@@ -82,11 +85,12 @@ export default function NavBar({ transparent = true }: NavProps) {
             );
           })}
         </ul>
+       {isAuthenticated && <UserIcon name='bryan' />}
         <ul className="flex gap-5 text-white ">
+        
           <li className="font-medium  transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">
             DONATE
           </li>
-
           <NavHam white={white} />
         </ul>
       </nav>

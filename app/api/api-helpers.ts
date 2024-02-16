@@ -3,7 +3,7 @@ import { prisma } from "../db";
 import { user } from "@prisma/client";
 import { NextRequest } from "next/server";
 import { verify, JwtPayload } from 'jsonwebtoken';
-
+import { headers } from "next/headers";
 export const findUserBy = async (field: keyof user, val: user[typeof field]) => {
     try { 
         const user = await prisma.user.findFirst({ where: { [field]: val } });
@@ -15,15 +15,15 @@ export const findUserBy = async (field: keyof user, val: user[typeof field]) => 
 }
 
 
-export const validateUser = (req: NextRequest) => {
+export const validateUser = (req: any) => {
+    
     try {
-        const headers = req.headers;
-        const authorizationHeader = headers.get('authorization');
-        const token = authorizationHeader?.replace('Bearer ', '');
+        const header = headers().get('Authorization');
+        const token = header?.replace('Bearer ', '');
         if (!token) throw new Error('No token provided')
         const secret = process.env.SUPABASE_JWT_SECRET!
         const decodedToken = verify(token, secret) as JwtPayload
-        const urlToCompare = process.env.SUPABASE_URL!
+        const urlToCompare = process.env.SUPABASE_URL + '/auth/v1'
         if (decodedToken.iss !== urlToCompare) throw new Error('Invalid issuer');
         if (Date.now() >= decodedToken.exp! * 1000) throw new Error('Token has expired')
         return true
