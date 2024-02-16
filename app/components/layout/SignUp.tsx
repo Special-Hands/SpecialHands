@@ -1,12 +1,12 @@
 "use client";
 import "aos/dist/aos.css";
-import { quickFetch } from "../Utils/fetchHelpers";
+import { quickFetch } from "../../Utils/fetchHelpers";
 import { CircularProgress } from "@mui/material";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { FormEvent, FormEventHandler, use, useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import { authParams } from "../login/page";
+import { authParams } from "../../login/page";
 import Aos from "aos";
 import Link from "next/link";
 
@@ -34,9 +34,10 @@ export default function SignUp() {
       const user = await supabase.auth.signUp(params);
       const { id, email } = user.data.user!;
       console.log(id, email);
-      const url = 'api/sign-up'
-      const signedUp = await quickFetch(url, 'post', {name, email, id});
-      console.log(signedUp)
+      const url = "api/sign-up";
+      const signedUp = await quickFetch(url, "post", { name, email, id });
+      
+      console.log(signedUp);
     } catch (err) {
       if (err instanceof Error) {
         console.error(err);

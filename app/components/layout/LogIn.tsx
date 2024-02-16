@@ -1,17 +1,18 @@
 "use client";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { authParams } from "../login/page";
+import { authParams } from "../../login/page";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { FormEvent, FormEventHandler } from "react";
 import { Button } from "@mui/material";
 import Aos from "aos";
 import Link from "next/link";
+import { isSignedIn } from "../../Utils/AuthHelpers";
 export default function LogIn() {
   useEffect(() => {
-    Aos.init()
-  }, [])
+    Aos.init();
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -19,22 +20,24 @@ export default function LogIn() {
 
   const handleLogIn = async () => {
     try {
-      const response = await supabase.auth.signInWithPassword({ email, password });
-      console.log(response)
+      await supabase.auth.signInWithPassword({ email, password });
+      const userToken = await isSignedIn()
+      
     } catch (err) {
       if (err instanceof Error) {
-        console.error(err);
+        console.warn(err);
       }
     }
     router.refresh();
-    
+
     setEmail("");
     setPassword("");
   };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        handleLogIn()
-  }
+    e.preventDefault();
+    handleLogIn();
+  };
 
   return (
     <div className="">
@@ -43,14 +46,19 @@ export default function LogIn() {
         className=" shadow sign-card bg-white rounded pt-[50px] inset-[0] justify-center m-auto  w-[400px] h-[500px]"
         id="sign-up"
       >
-        <div className="flex ">
-          
-        </div>
+        <div className="flex "></div>
         <h1 className="font-[300] text-[2rem] text-center">Welcome!</h1>
         <p className="text-center text-[1.3rem] ">Sign in to your account</p>
-        <Link href='/signup'><p  className="text-center text-[0.8rem] mb-8">Dont have an account?<span className="underline" >Sign Up</span></p></Link>
+        <Link href="/signup">
+          <p className="text-center text-[0.8rem] mb-8">
+            Dont have an account?<span className="underline">Sign Up</span>
+          </p>
+        </Link>
 
-        <form onSubmit={(e) => handleSubmit(e)} className="m-auto flex flex-col gap-3 w-[80%]">
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className="m-auto flex flex-col gap-3 w-[80%]"
+        >
           <div className="flex justify-center flex-col">
             <label className="font-[450] text-gray-400" htmlFor="email">
               Email
