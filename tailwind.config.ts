@@ -14,6 +14,7 @@ const config: Config = {
       medsm: { max: "650px" },
       small: { max: "500px" },
       xsmall: { max: "400px" },
+      medxsmall : {max: '450px'},
       "550": { max: "520px" },
     },
     extend: {

@@ -3,8 +3,9 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 interface HamProps {
   white: boolean;
+  transparent: boolean
 }
-function NavHam({ white = false }: HamProps) {
+function NavHam({ white = false, transparent = true }: HamProps) {
   const items = ["HOME","ABOUT US", "OUR SERVICES", "CONTACT US", "DONATE"];
   const [active, setActive] = useState(false);
   const slide = useRef<HTMLDivElement>(null);
@@ -12,29 +13,27 @@ function NavHam({ white = false }: HamProps) {
     setActive(!active);
     if (active) {
       slide.current!.style.right = "-100%";
-      slide.current!.style.transform = "translateY(-3.7rem)";
+      slide.current!.style.transform = "translateY(-3.85rem)";
     } else {
       slide.current!.style.right = "0";
-      slide.current!.style.transform = "translateY(-2rem)";
+      slide.current!.style.transform = "translateY(-3.85rem)";
     }
   };
 
   return (
     <div className="overflow-x-hidden    w-full">
-      {!active && (
-        //Menu Button
+        
         <button
           onClick={handleClick}
-          className=" hidden mid:block translate-y-[0.3rem]"
+          className={`${active && 'invisible'} hidden mid:block translate-y-[0.3rem]`}
         >
           <Image
-            src={white ? "/navButton-bl.svg" : "navButton.svg"}
+            src={white || !transparent ? "/navButton-bl.svg" : "navButton.svg"}
             alt="hamburger-button"
             width={40}
             height={40}
           ></Image>
         </button>
-      )}
       {/* --------------------------------------------------- */}
       {/* SLIDING MENU */}
       <div
@@ -46,21 +45,21 @@ function NavHam({ white = false }: HamProps) {
             <button
               onClick={handleClick}
               className={`${
-                active ? "" : ""
-              } z-[101] translate-x-[0.05rem] absolute right-2 800:hidden`}
+                active ? "  z-[101] translate-x-[0.05rem] absolute right-2 800:hidden" : ""
+              } z-[101]  translate-x-[0.05rem] absolute right-2 800:hidden`}
             >
               <Image
                 src="xButton.svg"
                 alt="x-button"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
               ></Image>
             </button>
           </div>
           <ul className="gap-10 text-x flex-col  translate-y-[3.5rem] items-start flex-grow justify-end flex">
             {items.map((item) => {
               return (
-                <li className="font-medium  text-black transition-all duration-300 text-[2.5rem] hover:text-[#FFA500] pl-10 hover:border-l-[1rem] hover:border-[orange]  cursor-pointer">
+                <li key={item} className="font-medium  text-black transition-all duration-300 text-[2.5rem] hover:text-[#FFA500] pl-10 hover:border-l-[1rem] hover:border-[orange]  cursor-pointer">
                   {item}
                 </li>
               );

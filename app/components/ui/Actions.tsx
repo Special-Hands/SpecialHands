@@ -28,7 +28,7 @@ function Actions({ items }: actionProps) {
     <div className="flex flex-wrap  gap-[8rem]">
       {items.map((item) => {
         return (
-          <div className="m-auto">
+          <div key={item.title} className="m-auto">
             <div
               onMouseEnter={() => handleHover(item.index)}
               onMouseLeave={() => handleHover(item.index)}
