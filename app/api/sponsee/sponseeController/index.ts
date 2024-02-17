@@ -1,9 +1,10 @@
 import create from "./createSponsee";
-import deleteSponsee from "./deleteSponsee";
+import destroy from "./deleteSponsee";
+import read from "./getAllSponsees";
 
 export default {
     create,
-    deleteSponsee
-    
+    destroy,
+    read
     
 }
