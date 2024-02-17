@@ -1,14 +1,15 @@
 "use client";
 import "aos/dist/aos.css";
-import { quickFetch } from "../Utils/fetchHelpers";
+import { quickFetch } from "../../Utils/fetchHelpers";
 import { CircularProgress } from "@mui/material";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { FormEvent, FormEventHandler, use, useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import { authParams } from "../login/page";
+import { authParams } from "../../login/page";
 import Aos from "aos";
 import Link from "next/link";
+
 
 export default function SignUp() {
   useEffect(() => {
@@ -34,9 +35,10 @@ export default function SignUp() {
       const user = await supabase.auth.signUp(params);
       const { id, email } = user.data.user!;
       console.log(id, email);
-      const url = 'api/sign-up'
-      const signedUp = await quickFetch(url, 'post', {name, email, id});
-      console.log(signedUp)
+      const url = "api/sign-up";
+      const signedUp = await quickFetch(url, "post", { name, email, id });
+      
+      console.log(signedUp);
     } catch (err) {
       if (err instanceof Error) {
         console.error(err);
@@ -57,25 +59,21 @@ export default function SignUp() {
   return (
     <div>
       <div
-        data-aos="flip-right"
-        className=" shadow sign-card  bg-white  rounded pt-[50px]  inset-[0] justify-center m-auto  w-[25rem] h-[31rem]"
+        data-aos="zoom-in"
+        className=" shadow sign-card  bg-white  rounded pt-[40px]  inset-[0] justify-center m-auto  w-[25rem] h-[31rem]"
         id="sign-up"
       >
         {!signedUp ? (
           <div>
             <h1 className="font-[300] text-[2rem] text-center">Sign-Up!</h1>
             <p className="text-center text-[] ">Create your account</p>
-            <Link href="/login">
-              <p className="text-center text-[0.8rem] mb-8">
-                Have an account?<span className="underline">Log In</span>
-              </p>
-            </Link>
+            
             <form
               onSubmit={(e) => handleSubmit(e)}
-              className="m-auto flex flex-col gap-3 w-[80%] "
+              className="m-auto mt-5 flex flex-col gap-3 w-[80%] "
             >
               <div className="flex justify-center flex-col">
-                <label className="font-[450] text-gray-400" htmlFor="name">
+                <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="name">
                   Name
                 </label>
                 <input
@@ -89,7 +87,7 @@ export default function SignUp() {
                 ></input>
               </div>
               <div className="flex justify-center flex-col">
-                <label className="font-[450] text-gray-400" htmlFor="email">
+                <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="email">
                   Email
                 </label>
                 <input
@@ -102,7 +100,7 @@ export default function SignUp() {
                 ></input>
               </div>
               <div className="flex justify-center flex-col">
-                <label className="font-[450] text-gray-400" htmlFor="password">
+                <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="password">
                   Password
                 </label>
                 <input
@@ -115,13 +113,19 @@ export default function SignUp() {
                   className=" h-[30px] pl-1 border-b"
                 ></input>
               </div>
+              
               <button
                 type="submit"
-                className="w-[10rem] bg-[orange] rounded m-auto mt-6 text-white hover:opacity-[80%] h-[2.5rem]"
+                className="w-[10rem] bg-[orange] rounded m-auto mt-10 text-white hover:opacity-[80%] h-[2.5rem]"
               >
                 {" "}
                 Complete Sign-up
               </button>
+              <Link href="/login">
+              <p className="text-center text-[0.9rem] pt-1">
+                Have an account?<span className="underline">Log In</span>
+              </p>
+            </Link>
             </form>
           </div>
         ) : (
