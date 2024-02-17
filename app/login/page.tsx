@@ -2,6 +2,7 @@
 import NavBar from "../components/layout/NavBar";
 import LogIn from "../components/layout/LogIn";
 
+
 export interface authParams {
   name?: string;
   email: string;

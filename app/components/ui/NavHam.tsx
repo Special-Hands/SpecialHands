@@ -3,8 +3,9 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 interface HamProps {
   white: boolean;
+  transparent: boolean
 }
-function NavHam({ white = false }: HamProps) {
+function NavHam({ white = false, transparent = true }: HamProps) {
   const items = ["HOME","ABOUT US", "OUR SERVICES", "CONTACT US", "DONATE"];
   const [active, setActive] = useState(false);
   const slide = useRef<HTMLDivElement>(null);
@@ -27,7 +28,7 @@ function NavHam({ white = false }: HamProps) {
           className={`${active && 'invisible'} hidden mid:block translate-y-[0.3rem]`}
         >
           <Image
-            src={white ? "/navButton-bl.svg" : "navButton.svg"}
+            src={white || !transparent ? "/navButton-bl.svg" : "navButton.svg"}
             alt="hamburger-button"
             width={40}
             height={40}
