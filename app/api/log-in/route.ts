@@ -6,7 +6,7 @@ import { headers } from 'next/headers'
 export const GET = async(req: any) => {
     try {
         const isAuthenticated = validateUser(req)
-        if (!isAuthenticated) {
+        if (isAuthenticated) {
             const params : any = req.nextUrl.searchParams
             const uid = params.uid
             console.log(uid)

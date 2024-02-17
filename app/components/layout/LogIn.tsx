@@ -1,19 +1,24 @@
 "use client";
+
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { authParams } from "../../login/page";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
+import { redirect } from 'next/navigation'
 import { FormEvent, FormEventHandler } from "react";
 import { Button } from "@mui/material";
 import Aos from "aos";
 import Link from "next/link";
 import { isSignedIn } from "../../Utils/AuthHelpers";
 import { quickFetch } from "@/app/Utils/fetchHelpers";
+
+
 export default function LogIn() {
   useEffect(() => {
     Aos.init();
   }, []);
+  const [invalid, setInvalid] = useState(false)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -21,12 +26,19 @@ export default function LogIn() {
 
   const handleLogIn = async () => {
     try {
+      setInvalid(false)
       await supabase.auth.signInWithPassword({ email, password });
       const userCred = await isSignedIn()
       const url = `api/log-in?uid=${userCred?.id}`
       const user = await quickFetch(url, 'get', {}, {'Authorization': `Bearer ${userCred?.webToken}`})
+      if (user.name) {
       localStorage.setItem('user', JSON.stringify({name: user.name, email: user.email}))
       console.log(user.name)
+      router.push('/')
+      }
+      else {
+        setInvalid(true)
+      }
     } catch (err) {
       if (err instanceof Error) {
         console.warn(err);
@@ -43,28 +55,28 @@ export default function LogIn() {
     handleLogIn();
   };
 
+  useEffect(() => {
+    if (invalid) alert('INVALID LOGIN CREDENTIALS')
+  }, [invalid])
   return (
     <div className="">
       <div
-        data-aos="flip-left"
+        data-aos="zoom-in"
         className=" shadow sign-card bg-white rounded pt-[50px] inset-[0] justify-center m-auto  w-[400px] h-[500px]"
         id="sign-up"
       >
         <div className="flex "></div>
         <h1 className="font-[300] text-[2rem] text-center">Welcome!</h1>
         <p className="text-center text-[1.3rem] ">Sign in to your account</p>
-        <Link href="/signup">
-          <p className="text-center text-[0.8rem] mb-8">
-            Dont have an account?<span className="underline">Sign Up</span>
-          </p>
-        </Link>
+        
 
         <form
+
           onSubmit={(e) => handleSubmit(e)}
-          className="m-auto flex flex-col gap-3 w-[80%]"
+          className="m-auto mt-10 flex flex-col gap-3 w-[80%]"
         >
           <div className="flex justify-center flex-col">
-            <label className="font-[450] text-gray-400" htmlFor="email">
+            <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="email">
               Email
             </label>
             <input
@@ -77,7 +89,7 @@ export default function LogIn() {
           </div>
 
           <div className="flex justify-center flex-col">
-            <label className="font-[450] text-gray-400" htmlFor="password">
+            <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="password">
               Password
             </label>
             <input
@@ -106,11 +118,16 @@ export default function LogIn() {
           </div>
           <button
             type="submit"
-            className="w-[10rem] bg-[orange] rounded m-auto mt-10 text-white hover:opacity-[80%] h-[2.5rem]"
+            className="w-[10rem] bg-[orange] rounded m-auto mt-5 text-white hover:opacity-[80%] h-[2.5rem]"
           >
             {" "}
             Log-In
           </button>
+          <Link href="/signup">
+          <p className="text-center text-[0.8rem] mb-8">
+            Dont have an account?<span className="underline">Sign Up</span>
+          </p>
+        </Link>
         </form>
       </div>
     </div>

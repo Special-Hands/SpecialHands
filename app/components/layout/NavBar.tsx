@@ -9,11 +9,13 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import UserIcon from "../ui/UserIcon";
 interface NavProps {
   transparent?: boolean;
+  slideOut?: boolean
 }
-export default function NavBar({ transparent = true }: NavProps) {
+export default function NavBar({ transparent = true, slideOut = false }: NavProps) {
   const items = ["ABOUT US", "OUR SERVICES", "CONTACT US"];
+  const [userName, setUserName] = useState(localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')!).name  : '')
   const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('user')? true: false));
-
+  
   const navScroll = useRef<HTMLDivElement>(null);
   const [white, setWhite] = useState(false);
 
@@ -59,6 +61,7 @@ export default function NavBar({ transparent = true }: NavProps) {
 
   return (
     <div
+      style={slideOut? {animation: 'slideOut 0.5s ease-in-out forwards'} : {}}
       ref={navScroll}
       className={
         transparent
@@ -66,7 +69,7 @@ export default function NavBar({ transparent = true }: NavProps) {
           : " transition-[background] duration-300  fixed active text-black  top-0 z-[50]  bg-white"
       }
     >
-      <nav className="flex justify-between px-3 py-[0.5rem] pl-[2rem] p-4 items-center w-screen ">
+      <nav  className="flex  duration-400 justify-between px-3 py-[0.5rem] pl-[2rem] p-4 items-center w-screen ">
         <Link href="/">
           <Image
             className={white || !transparent ? "opacity-100" : "opacity-[70%]"}
@@ -76,16 +79,16 @@ export default function NavBar({ transparent = true }: NavProps) {
             height={110}
           />
         </Link>
-        <ul className=" gap-10 pr-4  flex text-xl items-center flex-grow justify-end">
+        <ul className=" gap-7 pr-7  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
             return (
-              <li className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
+              <li key={item} className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
                 {item}
               </li>
             );
           })}
         </ul>
-       {isAuthenticated && <UserIcon name='bryan' />}
+       {isAuthenticated?<UserIcon name={userName? userName[0]: ''} /> : <Link href='/login'><p className=" font-medium  transition-all text-[orange] duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:opacity-[70%]  bg-[transparent]     mr-1"> LOG IN</p></Link>}
         <ul className="flex gap-5 text-white ">
         
           <li className="font-medium  transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">
