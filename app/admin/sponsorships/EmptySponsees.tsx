@@ -4,9 +4,7 @@ import { SponseeForm } from "./SponseeForm";
 export function EmptySponsee() {
   const [active, setActive] = useState<boolean>(false);
   const handleClick = () => {
-    console.log("hi")
     setActive(!active);
-   
   };
   return (
     <div className="flex flex-col items-center justify-center h-full bg-white">

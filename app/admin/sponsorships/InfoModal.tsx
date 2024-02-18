@@ -1,16 +1,26 @@
-"use client";
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { sponsee } from "@prisma/client";
 import Aos from "aos";
-import "aos/dist/aos.css";
-import { EmptySponsee } from "./EmptySponsees";
-interface props {
+interface Prop {
+  name: string;
+  sponsees: sponsee[];
   active: boolean;
   setActive: (active: boolean) => void;
 }
-export function SponseeForm({ active, setActive }: props) {
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+
+export function InfoModal({ name, sponsees, active, setActive }: Prop) {
+  const getInfo = (name: string) => {
+    const info = sponsees.find((sponsee) => sponsee.name === name);
+    return info;
+  };
+
+  const info = getInfo(name)!;
+  console.log(info);
+  const [name1, setName] = useState<string>(info.name);
+  const [description, setDescription] = useState<string>(info.info);
   const [file, setFile] = useState<File>();
+
   const handleClick = () => {
     setActive(!active);
   };
@@ -60,8 +70,7 @@ export function SponseeForm({ active, setActive }: props) {
               />
             </svg>
           </div>
-
-          <h2 className="text-xl font-bold ">Add a Sponsee</h2>
+          <h2 className="text-xl font-bold ">Edit Sponsee</h2>
           <div className="w-full">
             <label htmlFor="name" className="block  font-medium">
               Name
@@ -71,6 +80,7 @@ export function SponseeForm({ active, setActive }: props) {
               className="border  mt-2 p-2 rounded-md w-full focus:ring-orange-500 focus:border-orange-500"
               type="text"
               id="name"
+              value={name1}
               required
             />
           </div>
@@ -82,6 +92,7 @@ export function SponseeForm({ active, setActive }: props) {
               onChange={(e) => setDescription(e.target.value)}
               className="border  mt-2 p-2 rounded-md w-full focus:ring-orange-500 focus:border-orange-500"
               id="description"
+              value={description}
               required
               placeholder="Enter a detailed description..."></textarea>
           </div>
@@ -96,10 +107,17 @@ export function SponseeForm({ active, setActive }: props) {
               id="img"
               required
             />
+          </div>{" "}
+          <div className="flex gap-5 items-center justify-center">
+            <button
+              onClick={() => {}}
+              className=" bg-red-500 rounded-md py-2 px-4 text-white hover:bg-[#ff6a6a] transition duration-150 ease-in-out">
+              Delete
+            </button>
+            <button className=" bg-custom-orange rounded-md py-2 px-4 text-white hover:bg-orange-300 transition duration-150 ease-in-out">
+              Save
+            </button>
           </div>
-          <button className="mt-5 bg-custom-orange rounded-md py-2 px-4 text-white hover:bg-orange-400 transition duration-150 ease-in-out">
-            Add Sponsee
-          </button>
         </form>
       )}
     </div>
