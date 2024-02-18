@@ -43,7 +43,7 @@ export default async function createSponsee(req: NextRequest) {
     data: {
       name: name,
       info: description,
-          url: fileUrl,
+      url: fileUrl,
       path: filePath
     },
   });
