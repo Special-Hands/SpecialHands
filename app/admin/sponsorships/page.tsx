@@ -1,6 +1,6 @@
 import SponseeCards from "./SponseeCards";
 import { SponseeForm } from "./SponseeForm";
-import { EmptySponsee } from "./emptySponsees";
+import { EmptySponsee } from "./EmptySponsees";
 export default function sponserships() {
   return (
     <div className="ml-[16rem] pt-[3.5rem] h-screen ">
@@ -13,9 +13,9 @@ export default function sponserships() {
           </p>
         </div>
 
-        <SponseeCards />
         {/* ********* */}
-
+        <div className=""><SponseeCards /></div>
+        
         {/* RECENT SPONSERS */}
         {/* <div className=" bg-custom-white rounded-xl h-[22rem] flex flex-col w-[75vw] ">
           <div>
@@ -28,10 +28,8 @@ export default function sponserships() {
         {/* ********** */}
 
         {/* SPONSEE LIST */}
-        
-        {/* ********** */}
 
-       
+        {/* ********** */}
       </div>
     </div>
   );
