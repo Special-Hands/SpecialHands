@@ -21,14 +21,11 @@ function page() {
         }
       };
   return (
-    <div>
-        <div>
+    <div className='flex'>
+
         <ProfileSideBar />
-        </div>
-        <div>
         <Profile logout={handleLogOut}/>
-        </div>
-        
+
     </div>
   )
 }
