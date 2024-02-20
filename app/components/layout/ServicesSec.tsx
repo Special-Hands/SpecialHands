@@ -33,7 +33,7 @@ function ServicesSection({ services }: ServiceProps) {
               key={item.title}
               className="relative w-[21.875rem] cursor-pointer  flex-shrink-0 overflow-hidden text-black m-auto xsmall:w-[18.75rem]"
             >
-              <div className="overflow-hidden">
+              <div className="overflow-x-hidden">
                 <Image
                   className="transition-all duration-[0.4s] hover:scale-[1.05] "
                   width="350"
