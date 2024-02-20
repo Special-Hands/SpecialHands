@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -16,7 +17,7 @@ export default function ProfileSideBar() {
       <ul className="flex flex-col gap-4 ">
         {sideBarItems.map((item) => {
           return (
-            <div className={`cursor-pointer transition-all duration-300 ${path === `/profile/${(item[0] as string).toLowerCase()}` ? "animate-side rounded-lg": "  text-dash-gray"} `}>
+            <div className={`cursor-pointer transition-all duration-200 ${path === `/profile/${(item[0] as string).toLowerCase()}` ? "text-[orange] bg-white pl-1 rounded-lg": "text-dash-gray"}`}>
                 <li onClick={() => {
                   router.push(`/profile/${(item[0] as string).toLowerCase()}`);
   

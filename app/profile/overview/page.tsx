@@ -3,7 +3,14 @@ import Profile from '@/app/components/layout/Profile'
 import ProfileSideBar from '@/app/components/layout/ProfileSide';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from 'next/navigation';
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
+
 function page() {
+  useEffect(() => {
+    Aos.init()
+}, [])
     const router = useRouter();
     const supabase = createClientComponentClient()
     const handleLogOut = async () => {
@@ -21,9 +28,8 @@ function page() {
         }
       };
   return (
-    <div className='flex'>
+    <div data-aos='fade' className='flex'>
 
-        <ProfileSideBar />
         <Profile logout={handleLogOut}/>
 
     </div>
