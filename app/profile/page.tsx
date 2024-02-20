@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProfileSideBar from "../components/layout/ProfileSide";
 import Profile from "../components/layout/Profile";
+import UserDonations from "../components/layout/UserDonations";
 const options = [
   {
     title: "Settings",
@@ -23,32 +24,23 @@ const options = [
 ];
 
 function page() {
-  const [selected, setSelected] = useState("Overview");
+
   const supabase = createClientComponentClient();
   const router = useRouter();
-  const handleLogOut = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        throw error;
-      }
-      if (localStorage.getItem("user")) localStorage.removeItem("user");
-      router.push("/");
-    } catch (err) {
-      if (err instanceof Error) {
-        console.error("Error logging out:", err.message);
-      }
-    }
-  };
+ 
   return (
-    <div className="bg-white overflow-hidden h-screen">
+    <div className="bg-white overflow-x-hidden h-screen">
       <div className="invisible">
         <NavBar transparent={false} />
       </div>
 
-      <div className="flex">
-        <ProfileSideBar selected={selected} setSelected={setSelected} />
-        <Profile logout={handleLogOut}/>
+      <div className="flex mid:translate-x-[-15rem]">
+        <div className=""> 
+          <ProfileSideBar  />
+        </div>
+        
+
+          
       </div>
     </div>
   );
