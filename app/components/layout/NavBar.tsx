@@ -12,7 +12,7 @@ interface NavProps {
   slideOut?: boolean
 }
 export default function NavBar({ transparent = true, slideOut = false }: NavProps) {
-  const items = ["ABOUT US", "OUR SERVICES", "CONTACT US"];
+  const items = [["OUR SERVICES", '/#OURSERVICES'],["ABOUT US", '/#ABOUTUS'], ["CONTACT US", '/#CONTACTUS']];
   const [userName, setUserName] = useState(localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')!).name  : '')
   const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('user')? true: false));
   
@@ -91,9 +91,11 @@ export default function NavBar({ transparent = true, slideOut = false }: NavProp
         <ul className=" gap-7 pr-7  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
             return (
-              <li key={item} className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
-                {item}
+              <Link href={item[1]}>
+              <li key={item[0].split(' ').join()} className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
+                {item[0]}
               </li>
+              </Link>
             );
           })}
         </ul>

@@ -29,6 +29,7 @@ export default function LogIn() {
       setInvalid(false);
       await supabase.auth.signInWithPassword({ email, password });
       const userCred = await isSignedIn();
+      console.log(userCred)
       const url = `api/log-in?uid=${userCred?.id}`;
       const user = await quickFetch(
         url,
@@ -36,6 +37,7 @@ export default function LogIn() {
         {},
         { Authorization: `Bearer ${userCred?.webToken}` }
       );
+      console.log(user)
       if (user.name) {
         localStorage.setItem(
           "user",
