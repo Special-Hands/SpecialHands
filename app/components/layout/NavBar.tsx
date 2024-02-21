@@ -12,7 +12,7 @@ interface NavProps {
   slideOut?: boolean
 }
 export default function NavBar({ transparent = true, slideOut = false }: NavProps) {
-  const items = ["ABOUT US", "OUR SERVICES", "CONTACT US"];
+  const items = [["OUR SERVICES", '/#OURSERVICES'],["ABOUT US", '/#ABOUTUS'], ["CONTACT US", '/#CONTACTUS']];
   const [userName, setUserName] = useState(localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')!).name  : '')
   const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('user')? true: false));
   
@@ -91,13 +91,15 @@ export default function NavBar({ transparent = true, slideOut = false }: NavProp
         <ul className=" gap-7 pr-7  flex text-xl items-center flex-grow justify-end">
           {items.map((item) => {
             return (
-              <li key={item} className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
-                {item}
+              <Link href={item[1]}>
+              <li key={item[0].split(' ').join()} className=" mid:hidden text-[1.3rem] cursor-pointer  hover:border-b-[0.5rem] hover:border-[orange] hover:text-[orange] transition-all duration-300">
+                {item[0]}
               </li>
+              </Link>
             );
           })}
         </ul>
-       {isAuthenticated?<Link href='/profile'><UserIcon name={userName? userName[0]: ''} /></Link> : <Link href='/login'><p className=" font-medium  transition-all text-[orange] duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:opacity-[70%]  bg-[transparent]     mr-1"> LOG IN</p></Link>}
+       {isAuthenticated?<Link href='/profile/overview'><UserIcon name={userName? userName[0]: ''} /></Link> : <Link href='/login'><p className=" font-medium  transition-all text-[orange] duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:opacity-[70%]  bg-[transparent]     mr-1"> LOG IN</p></Link>}
         <ul className="flex gap-5 text-white ">
         
           <li className="font-medium  transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2  cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">

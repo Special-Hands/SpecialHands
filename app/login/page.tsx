@@ -1,6 +1,7 @@
 "use client";
 import NavBar from "../components/layout/NavBar";
 import LogIn from "../components/layout/LogIn";
+import AuthAlert1 from "../components/ui/AuthAlert1";
 
 
 export interface authParams {
@@ -20,6 +21,7 @@ export default function LogInPage() {
       <div className=" items-center pt-[10%] flex justify-center">
         <div className="  scale-[1.1] ">
           <LogIn />
+
         </div>
       </div>
     </div>

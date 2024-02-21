@@ -58,9 +58,17 @@ export default function Home() {
       <nav>
         <NavBar></NavBar>
       </nav>
-        <HeroSection/>
+      <div>
+      <HeroSection/>
+      </div>
+        <div id='OURSERVICES'>
         <ServicesSection services={provideInfo} />
+        </div>
+        <div  className='relative' >
+        <div id='ABOUTUS' className='absolute translate-y-[-9rem]' ></div>
         <AboutSection />
+        </div>
+        
         <ActionSection choices={action} />
       <Footer></Footer>
     </div>
