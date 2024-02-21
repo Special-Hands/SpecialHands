@@ -26,7 +26,7 @@ function Profile({ logout }: ProfileProps) {
             </div>
             <div>
               <h1 className=" text-[1.3rem] w-[70vw]  pb-2 -[0.1rem] font-normal">
-                Bryan Ramos
+                {user.name}
               </h1>
             </div>
           </div>

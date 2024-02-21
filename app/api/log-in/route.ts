@@ -7,10 +7,11 @@ export const GET = async(req: any) => {
     try {
         const isAuthenticated = validateUser(req)
         if (isAuthenticated) {
-            const params : any = req.nextUrl.searchParams
-            const uid = params.uid
+            const {searchParams} = new URL(req.url);
+            const uid = searchParams.get("uid")
+            if (!uid) throw new Error('Serever')
             console.log(uid)
-            const user  = await logIn(uid)
+            const user  = await logIn(uid as UUID)
             return new Response(JSON.stringify(user), {
                 status: 200,
                 headers: {
@@ -18,7 +19,7 @@ export const GET = async(req: any) => {
                 }
             }) 
         } else {
-            return new Response(JSON.stringify({ error: isAuthenticated }), {
+            return new Response(JSON.stringify({ error: req }), {
                 headers: {
                     'Content-type': 'application/json'
                 }

@@ -37,6 +37,9 @@ h1 {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .animate-side {
   animation: side 0s ease forwards;
 }
