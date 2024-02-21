@@ -24,12 +24,22 @@ h1 {
   box-shadow: inset 0 0 0 0rem #ffd08a;
 }
 
-@keyframes slideOut {
+@keyframes side {
   0% {
-    transform: translateY(0%);
+    color: rgb(73 88 109);
+    background: transparent;
+    padding-left: 0 ;
   }
   100% {
-    transform: translateY(-100%) ;
+    padding-left: 0.25rem;
+    color: orange;
+    background: white;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+.animate-side {
+  animation: side 0s ease forwards;
+}

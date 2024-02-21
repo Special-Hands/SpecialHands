@@ -5,20 +5,20 @@ import { useEffect, useState } from "react";
 import { authParams } from "../../login/page";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 import { FormEvent, FormEventHandler } from "react";
 import { Button } from "@mui/material";
 import Aos from "aos";
 import Link from "next/link";
 import { isSignedIn } from "../../Utils/AuthHelpers";
 import { quickFetch } from "@/app/Utils/fetchHelpers";
-
+import AuthAlert1 from "../ui/AuthAlert1";
 
 export default function LogIn() {
   useEffect(() => {
     Aos.init();
   }, []);
-  const [invalid, setInvalid] = useState(false)
+  const [invalid, setInvalid] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -26,18 +26,27 @@ export default function LogIn() {
 
   const handleLogIn = async () => {
     try {
-      setInvalid(false)
+      setInvalid(false);
       await supabase.auth.signInWithPassword({ email, password });
-      const userCred = await isSignedIn()
-      const url = `api/log-in?uid=${userCred?.id}`
-      const user = await quickFetch(url, 'get', {}, {'Authorization': `Bearer ${userCred?.webToken}`})
+      const userCred = await isSignedIn();
+      console.log(userCred)
+      const url = `api/log-in?uid=${userCred?.id}`;
+      const user = await quickFetch(
+        url,
+        "get",
+        {},
+        { Authorization: `Bearer ${userCred?.webToken}` }
+      );
+      console.log(user)
       if (user.name) {
-      localStorage.setItem('user', JSON.stringify({name: user.name, email: user.email}))
-      console.log(user.name)
-      router.push('/')
-      }
-      else {
-        setInvalid(true)
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ name: user.name, email: user.email })
+        );
+        console.log(user.name);
+        router.push("/");
+      } else {
+        setInvalid(true);
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -45,9 +54,10 @@ export default function LogIn() {
       }
     }
     router.refresh();
-
-    setEmail("");
-    setPassword("");
+    if (!invalid) {
+      setEmail("");
+      setPassword("");
+    }
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -55,9 +65,6 @@ export default function LogIn() {
     handleLogIn();
   };
 
-  useEffect(() => {
-    if (invalid) alert('INVALID LOGIN CREDENTIALS')
-  }, [invalid])
   return (
     <div className="">
       <div
@@ -68,15 +75,16 @@ export default function LogIn() {
         <div className="flex "></div>
         <h1 className="font-[300] text-[2rem] text-center">Welcome!</h1>
         <p className="text-center text-[1.3rem] ">Sign in to your account</p>
-        
 
         <form
-
           onSubmit={(e) => handleSubmit(e)}
           className="m-auto mt-10 flex flex-col gap-3 w-[80%]"
         >
           <div className="flex justify-center flex-col">
-            <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="email">
+            <label
+              className="font-[450] text-[0.9rem] text-gray-400"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -89,7 +97,10 @@ export default function LogIn() {
           </div>
 
           <div className="flex justify-center flex-col">
-            <label className="font-[450] text-[0.9rem] text-gray-400" htmlFor="password">
+            <label
+              className="font-[450] text-[0.9rem] text-gray-400"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -124,12 +135,17 @@ export default function LogIn() {
             Log-In
           </button>
           <Link href="/signup">
-          <p className="text-center text-[0.8rem] mb-8">
-            Dont have an account?<span className="underline">Sign Up</span>
-          </p>
-        </Link>
+            <p className="text-center text-[0.8rem] mb-8">
+              Dont have an account?<span className="underline">Sign Up</span>
+            </p>
+          </Link>
         </form>
       </div>
+      {invalid && (
+        <div className="pt-5">
+          <AuthAlert1 />
+        </div>
+      )}
     </div>
   );
 }
