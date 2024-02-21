@@ -14,10 +14,10 @@ export default function ProfileSideBar() {
     <div className="p-5 flex flex-col bg-[#f8f7f7] w-[15rem] mid:hidden h-screen  overflow-x-[hidden] gap-4   transition">
       {/* <Image src="/Logo.svg" width={100} height={100} alt="logo"></Image> */}
       <h2 className="text-[1.7rem] text-dash-gray font-normal">Account</h2>
-      <ul className="flex flex-col gap-4 ">
+      <ul className="flex flex-col gap-2 ">
         {sideBarItems.map((item) => {
           return (
-            <div className={`cursor-pointer transition-all duration-200 ${path === `/profile/${(item[0] as string).toLowerCase()}` ? "text-[orange] bg-white pl-1 rounded-lg": "text-dash-gray"}`}>
+            <div className={`cursor-pointer transition-bg transition-padding p-[0.2rem]  duration-100 ${path === `/profile/${(item[0] as string).toLowerCase()}` ? "text-[orange] bg-white pl-2 rounded-lg": "text-dash-gray hover:text-[gray] hover:bg-white p-[0.2rem] hover: rounded-lg"}`}>
                 <li onClick={() => {
                   router.push(`/profile/${(item[0] as string).toLowerCase()}`);
   
