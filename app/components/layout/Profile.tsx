@@ -22,7 +22,7 @@ function Profile({ logout }: ProfileProps) {
           </h1>
           <div className="flex pt-5 items-center gap-5 pl-5  mid:pl-0">
             <div className="w-[4rem] h-[4rem] rounded-[100%] text-[2.6rem] text-white text-center bg-[orange]">
-              B
+              {user.name[0]}
             </div>
             <div>
               <h1 className=" text-[1.3rem] w-[70vw]  pb-2 -[0.1rem] font-normal">

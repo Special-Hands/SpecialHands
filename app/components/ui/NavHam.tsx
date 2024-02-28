@@ -25,9 +25,10 @@ function NavHam({ white = false, transparent = true }: HamProps) {
         
         <button
           onClick={handleClick}
-          className={`${active && 'invisible'} hidden mid:block translate-y-[0.3rem]`}
+          className={`${active && 'invisible'} hidden xsmall:ml-3 nav:block translate-y-[0.3rem]`}
         >
           <Image
+            
             src={white || !transparent ? "/navButton-bl.svg" : "navButton.svg"}
             alt="hamburger-button"
             width={40}

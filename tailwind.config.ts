@@ -15,6 +15,7 @@ const config: Config = {
       small: { max: "500px" },
       xsmall: { max: "400px" },
       medxsmall : {max: '450px'},
+      nav: {max: '880px'},
       "550": { max: "520px" },
     },
     extend: {

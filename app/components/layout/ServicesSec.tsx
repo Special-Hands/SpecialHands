@@ -17,7 +17,7 @@ function ServicesSection({ services }: ServiceProps) {
       <div className="text-center">
         <div className="flex justify-center gap-2">
           <h3 className=" text-[orange]  text-[1.25rem]">Service </h3>
-          <div className="w-[3.125rem] border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
+          <div className="w-[3.5rem] border-b-[0.125rem]  translate-y-[-45%] border-[orange]"></div>
         </div>
         <h1 className="">OUR WORK</h1>
         <h1 className="text-[1.5rem] font-medium m-auto w-[80%]">
