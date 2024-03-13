@@ -19,7 +19,6 @@ model sponsee {
   path String @unique
   createdAt DateTime @default(now())
 
-
 }
 
 enum Role {
@@ -34,3 +33,4 @@ model user {
   role Role @default(USER)
   createdAt DateTime @default(now())
 }
+
