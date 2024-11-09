@@ -3,6 +3,7 @@ import { logIn } from "./log-in-controllers/login";
 import { UUID } from "crypto";
 import { validateUser } from "../api-helpers";
 import { headers } from 'next/headers'
+
 export const GET = async(req: any) => {
     try {
         const isAuthenticated = validateUser(req)

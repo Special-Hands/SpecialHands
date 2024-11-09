@@ -16,7 +16,7 @@ function HeroSection() {
             <div className="bg-transparent w-full height-full absolute inset-0 m-auto backdrop-blur-[0.25rem]"></div>
             <div className="absolute   w-[60%] m-auto  pl-[7%]   top-[30%] text-white  overflow-hidden   flex flex-col med:right-[4%]  med:leading-[2]  med:w-[90%] med:text-center med:top-[25%]   med:m-auto  med:pl-[0] medsm:w-[90%] medsm:top-[20%] small:w-[90%] small:   xsmall:scale-[0.9]  xsmall:top-[10%]">
               <h1 className="text-[3.4rem] small:text-[3rem]">
-                Together, let's reach out for change{" "}
+                Together, let's reach out for a change{" "}
                 <span className="text-[#ffa500] small:text-[3rem]">
                   one hand at a time
                 </span>

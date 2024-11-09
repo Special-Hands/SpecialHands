@@ -101,10 +101,12 @@ export default function NavBar({ transparent = true, slideOut = false }: NavProp
         <div className="flex gap-1">
         {isAuthenticated?<Link href='/profile/overview' ><UserIcon name={userName? userName[0]: ''} /></Link> : <Link href='/login'><p className=" font-medium   transition-all text-[orange] duration-300 translate-x-0   text-sm border-2  px-5 py-2   cursor-pointer border-[orange] hover:opacity-[70%]  bg-[transparent]     mr-1 "> LOG IN</p></Link>}
         <ul className="flex gap-5 text-white ">
-        
-          <li className="font-medium  xsmall:hidden transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2   cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">
+        <a href='https://buy.stripe.com/test_3cs3cY09x6980lWaEE'>
+        <li className="font-medium  xsmall:hidden transition-all duration-300 translate-x-0   text-sm border-2  px-5 py-2   cursor-pointer border-[orange] hover:text-[orange]  bg-[orange]   hover:bg-[white] ">
             DONATE
           </li>
+        </a>
+         
             <NavHam white={white} transparent={transparent} />
           
         </ul>

@@ -9,6 +9,7 @@ import ServicesSection from "./components/layout/ServicesSec";
 import AboutSection from "./components/layout/AboutSection";
 import ActionSection from "./components/layout/ActionSection";
 
+
 const provideInfo = [
   {
     title: "Education",
@@ -68,8 +69,10 @@ export default function Home() {
         <div id='ABOUTUS' className='absolute translate-y-[-9rem]' ></div>
         <AboutSection />
         </div>
+        <div className="mb-[10rem]">
+          <ActionSection choices={action} />
+        </div>
         
-        <ActionSection choices={action} />
       <Footer></Footer>
     </div>
   );

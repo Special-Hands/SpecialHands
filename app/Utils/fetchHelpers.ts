@@ -15,6 +15,7 @@ export const quickFetch = async(url: string, method: string, body = {}, headers 
         return jsonRes
     } catch(err) {
         if (err instanceof Error) {
+            console.log('hello')
             console.warn(err.message)
             return null
         }

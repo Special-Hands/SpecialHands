@@ -23,7 +23,7 @@ function ActionSection({ choices }: ActionProps) {
             deck, the stronger our impact will be.
           </p>
         </div>
-        <div className="flex mb-[10rem] mt-20  justify-center">
+        <div className="flex  mt-20  justify-center">
           <Actions items={choices} />
         </div>
       </div>

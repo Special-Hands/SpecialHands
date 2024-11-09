@@ -2,12 +2,9 @@
 
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { authParams } from "../../login/page";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { redirect } from "next/navigation";
 import { FormEvent, FormEventHandler } from "react";
-import { Button } from "@mui/material";
 import Aos from "aos";
 import Link from "next/link";
 import { isSignedIn } from "../../Utils/AuthHelpers";

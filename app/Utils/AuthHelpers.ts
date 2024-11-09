@@ -3,6 +3,7 @@ export const isSignedIn = async () => {
     const supabase = createClientComponentClient();
     try {
         const res = await supabase.auth.getSession()
+       
         const webToken = res.data.session?.access_token
         const id = res.data.session?.user.id!
         console.log(res)
